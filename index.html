@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Chagres Initiative</title>
+
+<style>
+:root{
+  --ku-blue:#0051ba;
+  --ku-crimson:#e8000d;
+  --bg:#070c18;
+  --card:#101a2f;
+  --text:#eaf0ff;
+  --muted:#b9c6ea;
+  --line:rgba(255,255,255,.12);
+  --max:1100px;
+  --r:16px;
+  --shadow:0 14px 34px rgba(0,0,0,.45);
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+section{padding:60px 0}
+section{ scroll-margin-top: 90px; }
+
+
+h1{font-size:38px; margin-bottom:14px}
+h2{font-size:24px; margin-bottom:16px}
+h3{font-size:18px; margin-bottom:8px}
+p{color:var(--muted)}
+
+header{
+  position:sticky;
+  top:0;
+  background:#0c1328;
+  border-bottom:1px solid var(--line);
+  padding:14px 0;
+  z-index:10000;
+ }
+
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.navlinks a{
+  margin-left:18px;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+}
+.navlinks a:hover{color:var(--text)}
+/* Dropdown navigation (Reports) */
+.dropdown{
+  position:relative;
+  display:inline-block;
+}
+
+.dropdown .dropbtn{
+  margin-left:18px;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+}
+
+.dropdown .dropbtn:hover{color:var(--text)}
+
+.dropdown-content{
+  display:none;
+  position:absolute;
+  top:28px;
+  right:0;
+  min-width:200px;
+  background:#0c1328;
+  border:1px solid var(--line);
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  padding:8px 0;
+  z-index:9999;
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px 12px;
+  margin:0;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:13px;
+}
+
+.dropdown-content a:hover{
+  color:var(--text);
+  background:rgba(255,255,255,.06);
+}
+
+/* Open on hover + keyboard focus */
+.dropdown:hover .dropdown-content{display:block}
+.dropdown:focus-within .dropdown-content{display:block}
+
+
+.hero{
+  background:linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+  url("images/hero.jpg") center/cover no-repeat;
+  padding:120px 0;
+  text-align:center;
+}
+
+/* Hero logos (faded trio above title) */
+.hero-logos{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:36px;
+  margin:0 0 24px 0;
+}
+
+.hero-logos img{
+  height:120px;
+  width:auto;
+  opacity:.88;         /* still slightly soft, but full color */
+  filter:none;         /* full color */
+}
+
+
+.hero-logos img.seal{
+  height:140px;              /* slightly larger for seal */
+}
+
+@media (max-width: 640px){
+  .hero-logos{
+    gap:18px;
+  }
+  .hero-logos img{
+    height:80px;
+  }
+  .hero-logos img.seal{
+    height:95px;
+  }
+}
+
+.panel{
+  background:var(--card);
+  padding:30px;
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+
+.method-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.step{
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--r);
+  border:1px solid var(--line);
+}
+
+.progress-wrap{
+  margin-top:20px;
+}
+
+.meter{
+  height:14px;
+  background:#1b2443;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--ku-crimson),var(--ku-blue));
+  transition:width 0.7s ease;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 20px;
+  background:linear-gradient(90deg,var(--ku-crimson),var(--ku-blue));
+  border-radius:12px;
+  text-decoration:none;
+  color:white;
+}
+
+.footer{
+  padding:40px 0;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+}
+/* Brand (logos + title in header) */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-logo{
+  height:40px;
+  width:auto;
+  display:block;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.brand-text strong{
+  font-size:14px;
+  letter-spacing:.2px;
+}
+
+.brand-text span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* Hero subtitle */
+.subhead{
+  max-width:900px;
+  margin:0 auto;
+}
+
+/* Team bios */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:16px;
+}
+
+.person-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+  padding:18px;
+}
+
+.person-top{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:10px;
+}
+
+.avatar{
+  width:72px;
+  height:72px;
+  border-radius:14px;
+  object-fit:cover;
+  border:1px solid var(--line);
+  flex:0 0 auto;
+}
+
+.person-card h3{
+  margin:0 0 4px 0;
+}
+
+.role{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.person-card p{
+  margin:10px 0 0 0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.contact{
+  margin-top:10px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.contact a{
+  color:var(--text);
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.2);
+}
+.contact a:hover{border-bottom-color:rgba(255,255,255,.6)}
+
+/* Carousel gallery (single image + buttons + caption) */
+.carousel{
+  margin-top:16px;
+}
+
+.carousel-frame{
+  display:grid;
+  grid-template-columns: 56px 1fr 56px;
+  gap:14px;
+  align-items:center;
+}
+
+.carousel-figure{
+  margin:0;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+#carouselImage{
+  width:100%;
+  height:min(70vh, 560px);
+  display:block;
+  object-fit:cover;
+}
+
+#carouselCaption{
+  padding:12px 14px;
+  font-size:14px;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+}
+
+.carousel-btn{
+  height:56px;
+  width:56px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:#0c1328;
+  color:var(--text);
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.carousel-btn:hover{
+  filter:brightness(1.08);
+}
+
+.carousel-meta{
+  margin-top:10px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+
+@media (max-width: 640px){
+  .carousel-frame{
+    grid-template-columns: 44px 1fr 44px;
+    gap:10px;
+  }
+  .carousel-btn{
+    height:44px;
+    width:44px;
+    border-radius:12px;
+    font-size:24px;
+  }
+  #carouselImage{
+    height:min(62vh, 420px);
+  }
+}
+
+.lang-btn{
+  margin-left:18px;
+  padding:6px 12px;
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:8px;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:13px;
+}
+
+.lang-btn:hover{
+  color:var(--text);
+  border-color:var(--text);
+}
+
+.footer-lang{
+  margin-top:10px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.footer-lang span{
+  cursor:pointer;
+  border-bottom:1px solid transparent;
+}
+
+.footer-lang span:hover{
+  color:var(--text);
+  border-bottom:1px solid var(--text);
+}
+/* Responsive Google Map embed */
+.map-embed{
+  position:relative;
+  width:100%;
+  padding-top:56.25%; /* 16:9 */
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  margin:18px 0 16px;
+}
+
+.map-embed iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+  <img class="brand-logo" src="images/geog_logo.jpg" alt="KU Department of Geography logo">
+  <div class="brand-text">
+    <strong>The Chagres Initiative</strong>
+    <span>KU Department of Geography</span>
+  </div>
+  <img class="brand-logo" src="images/jayhawk.png" alt="Jayhawk logo">
+</div>
+   <div class="navlinks">
+  <a href="#about" data-i18n="nav_about">About</a>
+  <a href="#methodology" data-i18n="nav_methodology">Methodology</a>
+  <a href="#gallery" data-i18n="nav_fieldwork">Fieldwork</a>
+  <a href="#maps" data-i18n="nav_maps">Maps</a>
+<div class="dropdown">
+  <a href="#reports" class="dropbtn" data-i18n="nav_reports">Field Reports</a>
+  <div class="dropdown-content">
+    <a href="#field-blog" data-i18n="nav_blog">Field Blog</a>
+    <a href="#official-reports" data-i18n="nav_official">Official Reports</a>
+  </div>
+</div>
+  <a href="#donate" data-i18n="nav_donate">Donate</a>
+  <a href="#team" data-i18n="nav_team">Team</a>
+  <button class="lang-btn" id="langToggle">ES</button>
+</div>
+
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="background:
+linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+url('images/palms.jpg') center/cover no-repeat;">
+    <div class="wrap">
+
+    <div class="hero-logos" aria-label="Project and partner logos">
+      <img src="images/geog_logo.jpg" alt="KU Department of Geography logo">
+      <img src="images/jayhawk.png" alt="Jayhawk logo">
+      <img class="seal" src="images/labonga_seal.jpg" alt="Seal of the Indigenous Community of La Bonga">
+
+    </div>
+
+    <h1>The Chagres Initiative</h1>
+<p class="subhead">
+  A KU Department of Geography Participatory Research Mapping Project with the Indigenous Community of San Juan Pequení Indígena La Bonga, Panama
+</p>
+  </div>
+</section>
+
+
+<section id="about">
+  <div class="wrap">
+    <h2>About the Initiative</h2>
+    <div class="panel">
+      <p data-i18n="about_text">
+  The Chagres Initiative is a community-based participatory zoning and monitoring effort in the Río Pequení sub-basin of Chagres National Park, the most strategically important watershed in the Panama Canal system. The park supplies an estimated 40 percent of the water used in Canal operations and about 80 percent of Panama City’s drinking water. Yet limited on-the-ground monitoring and enforcement in remote areas has enabled illegal settlement and deforestation, while the Emberá community of San Juan Pequení Indígena (La Bonga) remains in legal limbo as it seeks collective land recognition under Panama’s 2008 Law 72. Working with Indigenous leaders, neighboring campesino residents, and Canal institutions, the project combines participatory research mapping with GIS and remote sensing to co-produce consensus land-use zones and locally grounded monitoring tools that can strengthen watershed governance and Canal water security.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Regional Context</h2>
+    <div class="panel">
+      <img src="images/container_ship_gatun.jpg" alt="Container ship on Gatun Lake" style="width:100%; border-radius:12px; margin-bottom:20px;">
+      <p>
+        The Panama Canal depends on freshwater stored in the Chagres watershed.
+        Climate variability and upstream land-use change threaten long-term water security.
+        Our initiative strengthens watershed governance at its ecological source.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="methodology">
+  <div class="wrap">
+    <h2>Participatory Research Mapping (PRM)</h2>
+
+    <div class="method-grid">
+      <div class="step">
+        <h3>1. Co-design</h3>
+        <p>Define mapping goals collaboratively with community leadership.</p>
+      </div>
+      <div class="step">
+        <h3>2. Training</h3>
+        <p>Equip local researchers with GPS, mapping, and documentation tools.</p>
+      </div>
+      <div class="step">
+        <h3>3. Field Verification</h3>
+        <p>Collect ground-truth points through shared site visits.</p>
+      </div>
+      <div class="step">
+        <h3>4. GIS Production</h3>
+        <p>Digitize and standardize outputs for planning and governance use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>Fieldwork & Landscape</h2>
+
+    <div class="carousel" aria-label="Fieldwork photo gallery">
+      <!-- Hidden list of slides (JS reads these) -->
+      <div class="carousel-slides" hidden>
+        <img src="images/lancha.jpg" alt="River lancha transport">
+        <img src="images/field_tour.jpg" alt="Field tour in watershed">
+        <img src="images/indigenous_band.jpg" alt="Indigenous cultural performance">
+        <img src="images/indigenous_girl_smiling.jpg" alt="Community member portrait">
+        <img src="images/chief_checking.jpg" alt="Community leadership engagement">
+        <img src="images/lizard.jpg" alt="Rainforest lizard">
+        <img src="images/monkey.jpg" alt="Rainforest monkey">
+      </div>
+
+      <!-- Visible viewer -->
+      <div class="carousel-frame">
+        <button class="carousel-btn" type="button" id="prevPhoto" aria-label="Previous photo">‹</button>
+
+        <figure class="carousel-figure">
+          <img id="carouselImage" src="images/lancha.jpg" alt="River lancha transport">
+          <figcaption id="carouselCaption">River lancha transport</figcaption>
+        </figure>
+
+        <button class="carousel-btn" type="button" id="nextPhoto" aria-label="Next photo">›</button>
+      </div>
+
+      <div class="carousel-meta">
+        <span id="carouselCount">1 / 7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="maps">
+  <div class="wrap">
+    <h2 data-i18n="maps_title">Project Maps</h2>
+
+    <div class="panel">
+      <img
+        src="images/chagres_broadermap.jpg"
+        alt="Chagres watershed overview map"
+        style="width:100%; border-radius:12px; margin-bottom:18px; border:1px solid var(--line);"
+      >
+
+      <p data-i18n="maps_text">
+        This overview map situates the Río Pequení watershed within Chagres National Park - the geographic setting for our participatory research mapping work with the community of La Bonga.
+      </p>
+
+      <div class="map-embed" aria-label="Interactive map of La Bonga">
+       <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.823992608622!2d-79.5241626!3d9.3827301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fab494a734c2493%3A0xe55e405b5412d0dc!2sSan%20Juan%20de%20Pequen%C3%AD%20Ind%C3%ADgena%20(La%20Bonga)!5e0!3m2!1sen!2sus!4v1730000000000"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        title="San Juan de Pequení Indígena (La Bonga) - Interactive Map">
+      </iframe>
+
+      </div>
+
+      <a class="btn"
+         href="https://www.google.com/maps/place/San+Juan+de+Pequení+Indígena+(+La+Bonga)/@9.3827301,-79.5241626,17z/data=!3m1!4b1!4m6!3m5!1s0x8fab494a734c2493:0xe55e405b5412d0dc!8m2!3d9.3827301!4d-79.5215877!16s%2Fg%2F11mtjt0g7z?entry=ttu"
+         target="_blank"
+         rel="noopener">
+        <span data-i18n="maps_button">Open La Bonga in Google Maps</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="reports">
+  <div class="wrap">
+    <h2 data-i18n="reports_title">Field Reports</h2>
+    <p class="subhead" data-i18n="reports_subhead">
+      Ongoing field reflections, research updates, and official project documentation from the Chagres Initiative.
+    </p>
+
+    <div class="method-grid">
+
+      <!-- Blog Section -->
+      <div class="panel" id="field-blog">
+        <h3 data-i18n="blog_title">Field Blog</h3>
+        <p data-i18n="blog_text">
+          Narrative updates from the field, participatory mapping workshops, and watershed engagement activities.
+        </p>
+
+        <p style="color:var(--muted);">
+  Field narratives and workshop documentation will be published on a rolling basis.
+        </p>
+
+      </div>
+
+      <!-- Official Reports Section -->
+     <div class="panel" id="official-reports">
+        <h3 data-i18n="official_title">Official Reports</h3>
+        <p data-i18n="official_text">
+          Formal reports, project summaries, grant documentation, and technical outputs.
+        </p>
+
+        <p style="color:var(--muted);">
+  Formal reports and technical documentation will be made publicly available upon completion and review.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="donate">
+  <div class="wrap">
+    <h2>Support the Chagres Geographic Fund</h2>
+    <div class="panel">
+      <p>Help fund participatory mapping, watershed monitoring, and student research initiatives.</p>
+
+      <div class="progress-wrap">
+        <strong id="raised">$0 raised of $50,000 goal</strong>
+        <div class="meter">
+          <div class="fill" id="fillBar"></div>
+        </div>
+      </div>
+
+      <a class="btn" href="https://geog.ku.edu/donate" target="_blank">
+        Donate to the Chagres Geographic Fund
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <h2>Research Team</h2>
+
+    <img src="images/team.jpg" alt="Research team in Panama" style="width:100%; border-radius:12px; margin-bottom:20px;">
+
+    <div class="team-grid">
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/peter1.jpg" alt="Peter Herlihy">
+          <div>
+            <h3>Peter Herlihy</h3>
+            <p class="role">Professor, University of Kansas</p>
+            <div class="contact"><a href="mailto:herlihy@ku.edu">herlihy@ku.edu</a></div>
+          </div>
+        </div>
+        <p>
+          <!-- Replace this with Peter’s bio -->
+          Bio placeholder: add 2-4 sentences about expertise, role in PRM, and project leadership.
+        </p>
+      </div>
+
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/taylor.jpg" alt="Taylor Tappan">
+          <div>
+            <h3>Taylor Tappan</h3>
+            <p class="role">UT Arlington</p>
+            <div class="contact"><a href="mailto:taylor.tappan@uta.edu">taylor.tappan@uta.edu</a></div>
+          </div>
+        </div>
+        <p>
+          Bio placeholder: add Taylor’s focus (remote sensing, GIS, field methods, etc.) and role on the team.
+        </p>
+      </div>
+
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/cap.png" alt="Cap McLiney">
+          <div>
+            <h3>Cap McLiney</h3>
+            <p class="role">PhD Student, KU</p>
+            <div class="contact"><a href="mailto:cmclineyjr@ku.edu">cmclineyjr@ku.edu</a></div>
+          </div>
+        </div>
+        <p>
+          Bio placeholder: add 2-4 sentences on your role (field coordination, participatory mapping, documentation, GIS).
+        </p>
+      </div>
+
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/sam.jpg" alt="Sam Morrow">
+          <div>
+            <h3>Sam Morrow</h3>
+            <p class="role">MA Student, KU</p>
+            <div class="contact">Email TBD</div>
+          </div>
+        </div>
+        <p>
+          Bio placeholder: add Sam’s role (field support, mapping assistance, logistics, etc.).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  © 2026 The Chagres Initiative - KU Department of Geography
+  <div class="footer-lang">
+    <span id="footerLangToggle">English | Español</span>
+  </div>
+</div>
+
+<script>
+const raised = 0;
+const goal = 100000;
+const percent = (raised/goal)*100;
+document.getElementById("fillBar").style.width = percent + "%";
+document.getElementById("raised").textContent =
+"$" + raised.toLocaleString() + " raised of $" + goal.toLocaleString() + " goal";
+
+// --- Photo carousel ---
+(function(){
+  const slidesContainer = document.querySelector("#gallery .carousel-slides");
+  if(!slidesContainer) return;
+
+  const slides = Array.from(slidesContainer.querySelectorAll("img"));
+  const viewerImg = document.getElementById("carouselImage");
+  const viewerCaption = document.getElementById("carouselCaption");
+  const countEl = document.getElementById("carouselCount");
+  const prevBtn = document.getElementById("prevPhoto");
+  const nextBtn = document.getElementById("nextPhoto");
+
+  let i = 0;
+
+  function render(){
+    const s = slides[i];
+    viewerImg.src = s.getAttribute("src");
+    viewerImg.alt = s.getAttribute("alt") || "";
+    viewerCaption.textContent = s.getAttribute("alt") || "";
+    countEl.textContent = `${i + 1} / ${slides.length}`;
+  }
+
+  function prev(){
+    i = (i - 1 + slides.length) % slides.length;
+    render();
+  }
+
+  function next(){
+    i = (i + 1) % slides.length;
+    render();
+  }
+
+  prevBtn.addEventListener("click", prev);
+  nextBtn.addEventListener("click", next);
+
+  // keyboard support when user is on the page
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "ArrowLeft") prev();
+    if(e.key === "ArrowRight") next();
+  });
+
+  render();
+})();
+
+// --- Language toggle (EN / ES) ---
+const translations = {
+  es: {
+    nav_about: "Acerca de",
+    nav_methodology: "Metodología",
+    nav_fieldwork: "Trabajo de Campo",
+    nav_maps: "Mapas",
+    nav_reports: "Informes de Campo",
+    nav_donate: "Donar",
+    nav_team: "Equipo",
+    nav_blog: "Blog de Campo",
+    nav_official: "Informes Oficiales",
+
+
+    hero_title: "La Iniciativa Chagres",
+    hero_subhead:
+      "Un Proyecto de Mapeo Participativo del Departamento de Geografía de KU con la Comunidad Indígena de San Juan Pequení Indígena La Bonga, Panamá",
+
+    about_title: "Sobre la Iniciativa",
+    about_text:
+      "Esta iniciativa desarrolla marcos participativos de zonificación y monitoreo en la cuenca del Río Pequení en el Parque Nacional Chagres, fortaleciendo la gestión local y la seguridad hídrica regional.",
+
+    regional_title: "Contexto Regional",
+    regional_text:
+      "El Canal de Panamá depende del agua dulce almacenada en la cuenca del Chagres. La variabilidad climática y el cambio en el uso del suelo aguas arriba amenazan la seguridad hídrica a largo plazo. Nuestra iniciativa fortalece la gobernanza de la cuenca en su fuente ecológica.",
+
+    donate_title: "Apoye el Fondo Geográfico Chagres",
+    donate_text:
+      "Ayude a financiar el mapeo participativo, el monitoreo de cuencas y las iniciativas de investigación estudiantil.",
+
+    team_title: "Equipo de Investigación",
+
+    maps_title: "Mapas del Proyecto",
+    maps_text: "Este mapa general sitúa la cuenca del Río Pequení dentro del Parque Nacional Chagres - el contexto geográfico de nuestro trabajo de mapeo participativo con la comunidad de La Bonga.",
+    maps_button: "Abrir La Bonga en Google Maps",
+
+    reports_title: "Informes de Campo",
+    reports_subhead: "Reflexiones continuas desde el campo, actualizaciones de investigación y documentación oficial del proyecto Chagres.",
+    blog_title: "Blog de Campo",
+    blog_text: "Actualizaciones narrativas desde el campo, talleres de mapeo participativo y actividades de gestión de cuencas.",
+    official_title: "Informes Oficiales",
+    official_text: "Informes formales, resúmenes del proyecto, documentación de subvenciones y resultados técnicos."
+
+  }
+};
+
+let currentLang = "en";
+
+document.getElementById("langToggle").addEventListener("click", function(){
+  if(currentLang === "en"){
+    applySpanish();
+    this.textContent = "EN";
+    currentLang = "es";
+  } else {
+    location.reload(); // simplest way to restore English cleanly
+  }
+});
+
+// Footer language toggle (uses same logic as header button)
+document.getElementById("footerLangToggle").addEventListener("click", function(){
+  if(currentLang === "en"){
+    applySpanish();
+    document.getElementById("langToggle").textContent = "EN";
+    currentLang = "es";
+  } else {
+    location.reload();
+  }
+});
+
+function applySpanish(){
+  document.querySelector("h1").textContent = translations.es.hero_title;
+  document.querySelector(".subhead").textContent = translations.es.hero_subhead;
+
+  document.querySelector("#about h2").textContent = translations.es.about_title;
+  document.querySelector("#about p").textContent = translations.es.about_text;
+
+  document.querySelector("section:nth-of-type(2) h2").textContent = translations.es.regional_title;
+  document.querySelector("section:nth-of-type(2) p").textContent = translations.es.regional_text;
+
+  document.querySelector("#donate h2").textContent = translations.es.donate_title;
+  document.querySelector("#donate p").textContent = translations.es.donate_text;
+
+  document.querySelector("#team h2").textContent = translations.es.team_title;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if(translations.es[key]){
+      el.textContent = translations.es[key];
+    }
+  });
+
+  document.documentElement.lang = "es";
+}
+</script>
+
+</body>
+</html>
+

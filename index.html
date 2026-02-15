@@ -167,8 +167,6 @@ header{
   filter: drop-shadow(0 10px 18px rgba(232,0,13,.35));
 }
 
-
-
 .donor-subhead{
   margin-top:14px;
   font-size:16px;
@@ -298,6 +296,7 @@ header{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
   gap:16px;
+  grid-auto-rows: 1fr; /* ensure cards in the same row share the same height */
 }
 
 .person-card{
@@ -306,14 +305,22 @@ header{
   border-radius:var(--r);
   box-shadow:var(--shadow);
   padding:18px;
+
+  /* ensure all cards share the same height and push the bio toggle to the bottom */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.person-top{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
+/* keep the details/summary toggle anchored to the card bottom */
+.person-card details{
+  margin-top: auto;
   margin-bottom:10px;
 }
+
+
+
+
 
 .avatar{
   width:72px;
@@ -498,6 +505,134 @@ header{
   opacity: 0.9;
 }
 
+#faq details {
+  margin-bottom: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 18px 22px;
+  background: var(--card);
+  transition: all 0.25s ease;
+}
+
+#faq details:hover {
+  border-color: rgba(255,255,255,.18);
+  transform: translateY(-2px);
+}
+
+#faq summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#faq summary::-webkit-details-marker {
+  display: none;
+}
+
+#faq details[open] {
+  background: #16223f;
+  border-color: rgba(255,255,255,.22);
+}
+
+#faq p {
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#faq summary::after {
+  content: "›";
+  font-size: 22px;
+  transition: transform 0.25s ease;
+  opacity: .7;
+}
+
+#faq details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+/* Team bio accordions — consolidated */
+#team .bio-details{
+  margin-top: 10px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: var(--card);
+  transition: all 0.25s ease;
+  position: relative; /* anchor for absolutely-positioned .bio-panel */
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+#team .bio-details:hover{ border-color: rgba(255,255,255,.18); transform: translateY(-2px); }
+
+#team .bio-details summary{
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#team .bio-details summary::-webkit-details-marker{ display: none; }
+#team .bio-details[open]{ background: #16223f; border-color: rgba(255,255,255,.22); }
+
+#team .bio-details p{
+  margin: 12px 0 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Chevron animation like FAQ */
+#team .bio-details summary::after{ content: "›"; font-size: 20px; transition: transform 0.25s ease; opacity: .7; }
+#team .bio-details[open] summary::after{ transform: rotate(90deg); }
+
+/* Layout helpers to keep all team cards identical and summaries aligned */
+.person-top{ display: flex; gap: 14px; align-items: flex-start; margin-bottom: 10px; min-height: 88px; }
+.person-top > div{ flex: 1 1 auto; min-width: 0; }
+.person-card{ position: relative; display: flex; flex-direction: column; height: 100%; }
+.person-card details{ margin-top: auto; margin-bottom: 10px; }
+.role{ min-height: 32px; }
+.contact{ min-height: 20px; }
+
+/* Bio-panel overlay — does NOT affect grid row height */
+#team .bio-details .bio-panel{
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  background: #16223f;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 14px;
+  max-height: 260px;
+  overflow: auto;
+
+  /* hidden by default so opening doesn't change layout */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  pointer-events: none;
+}
+#team .bio-details[open] .bio-panel{ opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
+
+
+
+
+
 </style>
 </head>
 
@@ -585,63 +720,82 @@ url('images/palms.jpg') center/cover no-repeat;">
     <img src="images/team.jpg" alt="Research team in Panama" style="width:100%; border-radius:12px; margin-bottom:20px;">
 
     <div class="team-grid">
-      <div class="person-card">
-        <div class="person-top">
-          <img class="avatar" src="images/peter1.jpg" alt="Peter Herlihy">
-          <div>
-            <h3>Peter Herlihy</h3>
-            <p class="role">Professor, University of Kansas</p>
-            <div class="contact"><a href="mailto:herlihy@ku.edu">herlihy@ku.edu</a></div>
-          </div>
-        </div>
-        <p>
-          <!-- Replace this with Peter’s bio -->
-          Bio placeholder: add 2-4 sentences about expertise, role in PRM, and project leadership.
-        </p>
-      </div>
-
-      <div class="person-card">
-        <div class="person-top">
-          <img class="avatar" src="images/taylor.jpg" alt="Taylor Tappan">
-          <div>
-            <h3>Taylor Tappan</h3>
-            <p class="role">UT Arlington</p>
-            <div class="contact"><a href="mailto:taylor.tappan@uta.edu">taylor.tappan@uta.edu</a></div>
-          </div>
-        </div>
-        <p>
-          Bio placeholder: add Taylor’s focus (remote sensing, GIS, field methods, etc.) and role on the team.
-        </p>
-      </div>
-
-      <div class="person-card">
-        <div class="person-top">
-          <img class="avatar" src="images/cap.png" alt="Cap McLiney">
-          <div>
-            <h3>Cap McLiney</h3>
-            <p class="role">PhD Student, KU</p>
-            <div class="contact"><a href="mailto:cmclineyjr@ku.edu">cmclineyjr@ku.edu</a></div>
-          </div>
-        </div>
-        <p>
-          Bio placeholder: add 2-4 sentences on your role (field coordination, participatory mapping, documentation, GIS).
-        </p>
-      </div>
-
-      <div class="person-card">
-        <div class="person-top">
-          <img class="avatar" src="images/sam.jpg" alt="Sam Morrow">
-          <div>
-            <h3>Sam Morrow</h3>
-            <p class="role">MA Student, KU</p>
-            <div class="contact">Email TBD</div>
-          </div>
-        </div>
-        <p>
-          Bio placeholder: add Sam’s role (field support, mapping assistance, logistics, etc.).
-        </p>
+  <div class="person-card">
+    <div class="person-top">
+      <img class="avatar" src="images/peter1.jpg" alt="Peter Herlihy">
+      <div>
+        <h3>Dr. Peter Herlihy</h3>
+        <p class="role">Professor, University of Kansas</p>
+        <div class="contact"><a href="mailto:herlihy@ku.edu">herlihy@ku.edu</a></div>
       </div>
     </div>
+
+    <details class="bio-details bio-herlihy">
+      <summary>View Bio</summary>
+      <div class="bio-panel">
+      <p>Peter Herlihy is Professor of Geography at the University of Kansas and a leading scholar in participatory research mapping (PRM). For more than two decades, his fieldwork in Latin America, particularly in Panama’s Darién region, has advanced collaborative mapping methods that integrate Indigenous geographic knowledge with formal GIS systems.</p>
+      <p>His work has informed land titling processes, territorial governance frameworks, and community-based conservation planning. At KU, he has trained generations of geographers in ethical, field-based research and continues to innovate participatory GIS methodologies that bridge academia and community governance.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="person-card">
+    <div class="person-top">
+      <img class="avatar" src="images/taylor.jpg" alt="Taylor Tappan">
+      <div>
+        <h3>Dr. Taylor Tappan</h3>
+        <p class="role">Associate Professor, University of Texas at Arlington</p>
+        <div class="contact"><a href="mailto:taylor.tappan@uta.edu">taylor.tappan@uta.edu</a></div>
+      </div>
+    </div>
+
+    <details class="bio-details">
+      <summary>View Bio</summary>
+      <div class="bio-panel">
+      <p>Taylor Tappan is a geospatial researcher and lecturer at the University of Texas at Arlington specializing in remote sensing, land-use change analysis, and applied GIS. A “super Jayhawk,” he completed his undergraduate degree, M.A., and Ph.D. at the University of Kansas under the mentorship of Peter Herlihy.</p>
+      <p>His work uses satellite imagery and spatial modeling to analyze landscape transformation and environmental change across Latin America. Tappan’s expertise in high-resolution spatial data and watershed-scale analysis strengthens the technical foundation of the Chagres initiative, supporting rigorous mapping and long-term environmental monitoring.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="person-card">
+    <div class="person-top">
+      <img class="avatar" src="images/cap.png" alt="Cap McLiney">
+      <div>
+        <h3>Cap McLiney</h3>
+        <p class="role">PhD Student, University of Kansas</p>
+        <div class="contact"><a href="mailto:cmclineyjr@ku.edu">cmclineyjr@ku.edu</a></div>
+      </div>
+    </div>
+
+    <details class="bio-details">
+      <summary>View Bio</summary>
+      <div class="bio-panel">
+      <p>Cap McLiney is a Ph.D. student in Geography at the University of Kansas. He wrote his M.A. at KU, where his thesis research examined Old Colony Mennonite settlement and land-use change in the Peruvian Amazon. His doctoral work now focuses on participatory research mapping and watershed governance in Panama’s Chagres National Park.</p>
+      <p>He received his undergraduate degree from Wake Forest University and is a lifelong Kansan and dedicated Jayhawk. His research integrates field-based geography, GIS analysis, and community collaboration to better understand how land, culture, and governance intersect across the Americas.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="person-card">
+    <div class="person-top">
+      <img class="avatar" src="images/sam.jpg" alt="Sam Morrow">
+      <div>
+        <h3>Sam Morrow</h3>
+        <p class="role">MA Student, University of Kansas</p>
+        <div class="contact"><a href="mailto:sam.morrow@ku.edu">sam.morrow@ku.edu</a></div>
+      </div>
+    </div>
+
+    <details class="bio-details">
+      <summary>View Bio</summary>
+      <div class="bio-panel">
+      <p>Specializing in Panama Canal watershed managment in the Río Indio basin for his master's thesis. Sam attended Rhodes College in Memphis and is an integral part of the field team as he brings GIS specialization which he applies to our project.</p>
+      </div>
+    </details>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -843,9 +997,86 @@ url('images/palms.jpg') center/cover no-repeat;">
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="panel">
+
+      <details>
+        <summary>Why does the health of Chagres National Park matter for people in the United States?</summary>
+        <p>Chagres National Park provides approximately 40 percent of the freshwater used in Panama Canal operations and roughly 80 percent of the drinking water for Panama City. The Canal remains one of the most strategically important global trade corridors, moving a significant portion of U.S.-bound maritime commerce.</p>
+        
+        <p>Recent droughts have demonstrated that water scarcity is the Canal’s greatest operational vulnerability. Long-term watershed health directly affects trade reliability, regional diplomatic stability, and economic security. While locally grounded, the ecological importance of this watershed extends well beyond Panama.</p>
+      </details>
+
+      <details>
+        <summary>Who and what legal authority authorizes this project?</summary>
+        <p>This initiative proceeds only with community consent and institutional coordination. During a reconnaissance expedition in Summer 2025, the research team met with the Indigenous community of San Juan Pequeñí, participated in a formal Local Congress of Collective Lands, and received a written vote of approval and endorsement.</p>
+        
+        <p>This authorization aligns with Panama’s 2008 Law 72 governing "Tierras Colectivas" or Collective Indigenous Lands. The project continues only through collaborative agreement with community leadership.</p>
+      </details>
+
+      <details>
+        <summary>How does mapping help protect an area like this?</summary>
+        <p>National park boundaries alone do not ensure protection. Effective stewardship requires understanding the ecological and social processes occurring within those boundaries.</p>
+        
+        <p>Participatory research mapping translates Indigenous geographic knowledge into structured, transferable formats that can support zoning, monitoring, and long-term governance planning. At a fundamental level, it is difficult to protect what is not clearly understood.</p>
+      </details>
+
+      <details>
+        <summary>How are community members involved and compensated?</summary>
+        <p>Community members are trained as local geographers in GPS data collection and mapping techniques. Participants are compensated for their time and expertise.</p>
+      </details>
+
+      <details>
+        <summary>How long will the project take?</summary>
+        <p>The project is designed in three phases, depending on funding:</p>
+
+        <p><strong>Year 1:</strong> Participatory mapping and geospatial database development.</p>
+        <p><strong>Year 2:</strong> Consensus-driven zoning and development of community land-use guidelines.</p>
+        <p><strong>Year 3:</strong> Final map production, synthesis, and integration into management planning frameworks.</p>
+
+        <p>This phased approach prioritizes thoroughness and long-term impact over speed.</p>
+      </details>
+
+      <details>
+        <summary>How will donated funds be used?</summary>
+        <p>Donated funds directly support field-based research and community collaboration. Primary expenditures include:</p>
+
+        <ul>
+        <li>Stipends for local Indigenous collaborators and community workshop participants.</li>
+        <li>Field equipment such as GPS units, data storage devices, and mapping supplies.</li>
+        <li>Community workshops and participatory zoning sessions.</li>
+        <li>Travel and field logistics required to access remote watershed areas.</li>
+        <li>Map production, translation, and dissemination of final materials.</li>
+        </ul>
+
+        <p>Administrative costs are minimized through institutional partnership with the University of Kansas. The project prioritizes directing resources toward community engagement and durable conservation outcomes.</p>
+      </details>
+
+      <details>
+        <summary>Is this project political?</summary>
+        <p>The project is non-partisan and research-driven. Its focus is watershed stewardship, participatory governance, and environmental monitoring.</p>
+      </details>
+
+      <details>
+        <summary>Will the data be publicly available?</summary>
+        <p>Final outputs will be shared publicly. Sensitive knowledge remains under community control in accordance with data sovereignty principles.</p>
+      </details>
+
+      <details>
+        <summary>Can this model be replicated elsewhere?</summary>
+        <p>Yes. The framework combines participatory GIS, zoning, and institutional collaboration in a structured format designed to be adaptable to other protected areas.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <section id="donate">
   <div class="wrap">
-    <h2>Support the Chagres Geographic Fund</h2>
+    <h2>Support the Chagres Initiative </h2>
     <div class="panel">
      <p>
 The Chagres Geographic Fund directly supports equitable, community-based

@@ -62,8 +62,14 @@ header{
   align-items:center;
 }
 
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
 .navlinks a{
-  margin-left:18px;
+  margin-left:0;
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
@@ -124,26 +130,112 @@ header{
   text-align:center;
 }
 
-/* Hero logos (faded trio above title) */
+/* Hero logos (UTA - Jayhawk - La Bonga) centered perfectly above title */
 .hero-logos{
-  display:flex;
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items:center;
-  justify-content:center;
-  gap:36px;
+  gap:24px;
   margin:0 0 24px 0;
 }
 
 .hero-logos img{
-  height:120px;
   width:auto;
-  opacity:.88;         /* still slightly soft, but full color */
-  filter:none;         /* full color */
+  height:96px;
+  object-fit:contain;
+  opacity:.92;
 }
 
-
-.hero-logos img.seal{
-  height:140px;              /* slightly larger for seal */
+.hero-logos img:nth-child(1){
+  justify-self:end;   /* UTA hugs toward center */
 }
+
+.hero-logos img:nth-child(2){
+  justify-self:center; /* Jayhawk true center */
+  height:110px;        /* slightly larger */
+}
+
+.hero-logos img:nth-child(3){
+  justify-self:start; /* Seal hugs toward center */
+  height:104px;       /* seal slightly larger but controlled */
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  .hero-logos{
+    gap:14px;
+  }
+  .hero-logos img{
+    height:70px;
+  }
+  .hero-logos img:nth-child(2){
+    height:82px;
+  }
+  .hero-logos img:nth-child(3){
+    height:76px;
+  }
+}
+
+/* Hero signatures (Kansas - La Bonga center - Arlington) */
+.hero-signatures{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:20px;
+  margin:16px 0 32px 0;
+}
+
+.hero-signatures img{
+  width:auto;
+  height:60px;
+  object-fit:contain;
+  opacity:.85;
+}
+
+.hero-signatures img:nth-child(1){
+  justify-self:end;   /* Kansas signature on left */
+}
+
+.hero-signatures img.labonga-center{
+  justify-self:center; /* La Bonga seal centered */
+  height:120px;         /* significantly larger for center focus */
+}
+
+.hero-signatures img:nth-child(3){
+  justify-self:start; /* Arlington signature on right */
+}
+
+/* Signature background panel */
+.hero-signatures-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:24px;
+}
+
+.hero-signatures{
+  background:rgba(255,255,255,.97);
+  padding:28px 40px;
+  border-radius:18px;
+  box-shadow:0 14px 30px rgba(0,0,0,.45);
+
+  /* subtle texture effect */
+  backdrop-filter: blur(2px);
+  border:1px solid rgba(0,0,0,.08);
+}
+
+@media (max-width: 640px){
+  .hero-signatures{
+    gap:12px;
+    margin:12px 0 24px 0;
+  }
+  .hero-signatures img{
+    height:48px;
+  }
+  .hero-signatures img.labonga-center{
+    height:200px;
+  }
+}
+
 
 .cta-line{
   margin-top:32px;
@@ -165,6 +257,26 @@ header{
   -webkit-text-fill-color:transparent;
 
   filter: drop-shadow(0 10px 18px rgba(232,0,13,.35));
+}
+
+.cta-line a{
+  background:linear-gradient(
+    90deg,
+    #ff5a5a 0%,
+    var(--ku-crimson) 40%,
+    #b30000 75%,
+    #7a0000 100%
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-decoration:underline;
+  text-decoration-thickness:2px;
+  text-underline-offset:4px;
+  cursor:pointer;
+}
+
+.cta-line a:hover{
+  opacity:0.8;
 }
 
 .donor-subhead{
@@ -256,34 +368,25 @@ header{
   color:var(--muted);
   border-top:1px solid var(--line);
 }
-/* Brand (logos + title in header) */
+/* Header brand row: left logo - centered stack - right seal */
 .brand{
-  display:flex;
+  display:grid;
+  grid-template-columns: auto 1fr auto;
   align-items:center;
-  gap:12px;
+  gap:16px;
 }
 
 .brand-logo{
-  height:40px;
+  height:38px;
   width:auto;
+  object-fit:contain;
   display:block;
 }
 
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.1;
+.brand-center{
+  text-align:center;
 }
 
-.brand-text strong{
-  font-size:14px;
-  letter-spacing:.2px;
-}
-
-.brand-text span{
-  font-size:12px;
-  color:var(--muted);
-}
 
 /* Hero subtitle */
 .subhead{
@@ -435,7 +538,7 @@ header{
 }
 
 .lang-btn{
-  margin-left:18px;
+  margin-left:0;
   padding:6px 12px;
   background:transparent;
   border:1px solid var(--line);
@@ -505,6 +608,17 @@ header{
   opacity: 0.9;
 }
 
+.about-seal{
+  text-align:center;
+  margin-top:60px;
+}
+
+.about-seal img{
+  width:300px;
+  max-width:80%;
+  opacity:0.95;
+}
+
 #faq details {
   margin-bottom: 16px;
   border: 1px solid rgba(255,255,255,.08);
@@ -554,6 +668,74 @@ header{
 
 #faq details[open] summary::after {
   transform: rotate(90deg);
+}
+
+/* Documents dropdown styling */
+.documents-details {
+  margin-top: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: var(--card);
+  transition: all 0.25s ease;
+}
+
+.documents-details:hover {
+  border-color: rgba(255,255,255,.18);
+  transform: translateY(-2px);
+}
+
+.documents-details summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.documents-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.documents-details[open] {
+  background: #16223f;
+  border-color: rgba(255,255,255,.22);
+}
+
+.documents-details summary::after {
+  content: "›";
+  font-size: 20px;
+  transition: transform 0.25s ease;
+  opacity: .7;
+}
+
+.documents-details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.documents-list {
+  margin-top: 12px;
+  padding: 8px 0;
+}
+
+.documents-list a {
+  display: block;
+  padding: 10px 0;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  font-size: 14px;
+}
+
+.documents-list a:last-child {
+  border-bottom: none;
+}
+
+.documents-list a:hover {
+  color: var(--ku-blue);
 }
 
 /* Team bio accordions — consolidated */
@@ -641,14 +823,25 @@ header{
 <header>
   <div class="wrap nav">
     <div class="brand">
-  <img class="brand-logo" src="images/geog_logo.jpg" alt="KU Department of Geography logo">
-  <div class="brand-text">
-    <strong>The Chagres Initiative</strong>
-    <span>KU Department of Geography</span>
+  <!-- LEFT: Jayhawk -->
+  <img src="images/jayhawk.png"
+       alt="KU Jayhawk"
+       class="brand-logo">
+
+  <!-- CENTER: Title -->
+  <div class="brand-center">
+    <div class="brand-text">
+      <strong>The Chagres Initiative</strong>
+    </div>
   </div>
-  <img class="brand-logo" src="images/jayhawk.png" alt="Jayhawk logo">
+
+  <!-- RIGHT: Arlington -->
+<img src="images/arlington_mini.png"
+     alt="University of Texas at Arlington"
+     class="brand-logo">
 </div>
-   <div class="navlinks">
+
+    <div class="navlinks">
   <a href="#about" data-i18n="nav_about">About</a>
   <a href="#methodology" data-i18n="nav_methodology">Methodology</a>
   <a href="#gallery" data-i18n="nav_fieldwork">Fieldwork</a>
@@ -664,6 +857,8 @@ header{
   <a href="#team" data-i18n="nav_team">Team</a>
   <button class="lang-btn" id="langToggle">ES</button>
 </div>
+  </div>
+</header>
 
     </div>
   </div>
@@ -674,30 +869,33 @@ linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
 url('images/palms.jpg') center/cover no-repeat;">
     <div class="wrap">
 
-    <div class="hero-logos" aria-label="Project and partner logos">
-      <img src="images/geog_logo.jpg" alt="KU Department of Geography logo">
-      <img src="images/jayhawk.png" alt="Jayhawk logo">
-      <img class="seal" src="images/labonga_seal.jpg" alt="Seal of the Indigenous Community of La Bonga">
-
-    </div>
-
     <h1>The Chagres Initiative</h1>
 
 <p class="subhead">
-  A KU Department of Geography Participatory Research Mapping Project with the Indigenous Community of San Juan Pequení Indígena La Bonga, Panama
+  A KU and UT-Arlington Geographic, Participatory Research Mapping Project with the Indigenous Community of San Juan Pequení Indígena La Bonga, Panama
 </p>
 
 <p class="cta-line">
-  You can be part of our team by donating.
+  You can be part of our team by <a href="https://geog.ku.edu/donate" target="_blank" rel="noopener noreferrer">donating</a>.
 </p>
 
 <p class="donor-subhead">
   Your contribution directly supports paid Indigenous research collaborators,
   participatory mapping workshops, watershed monitoring equipment,
-  and field support for KU student researchers working in the Chagres basin.
+  and field support for KU and UT-Arlington student researchers working in the Chagres basin.
 </p>
 
   </div>
+
+ <div class="hero-signatures-wrap">
+  <div class="hero-signatures" aria-label="Partner signatures">
+    <img src="images/ku_signature.png" alt="University of Kansas">
+    <img src="images/labonga_seal.png" alt="Congreso Local de La Bonga seal" class="labonga-center">
+    <img src="images/arlington_signature.png" alt="University of Texas at Arlington">
+  </div>
+</div>
+
+
 </section>
 
 
@@ -706,8 +904,12 @@ url('images/palms.jpg') center/cover no-repeat;">
     <h2>About the Initiative</h2>
     <div class="panel">
       <p data-i18n="about_text">
-  The Chagres Initiative is a community-based participatory zoning and monitoring effort in the Río Pequení sub-basin of Chagres National Park, the most strategically important watershed in the Panama Canal system. The park supplies an estimated 40 percent of the water used in Canal operations and about 80 percent of Panama City’s drinking water. Yet limited on-the-ground monitoring and enforcement in remote areas has enabled illegal settlement and deforestation, while the Emberá community of San Juan Pequení Indígena (La Bonga) remains in legal limbo as it seeks collective land recognition under Panama’s 2008 Law 72. Working with Indigenous leaders, neighboring campesino residents, and Canal institutions, the project combines participatory research mapping with GIS and remote sensing to co-produce consensus land-use zones and locally grounded monitoring tools that can strengthen watershed governance and Canal water security.
+  The Chagres Initiative is a community-based participatory zoning and monitoring effort in the Río Pequení sub-basin of Chagres National Park, the most strategically important watershed in the Panama Canal system. The park supplies an estimated 40 percent of the water used in Canal operations and about 80 percent of Panama City’s drinking water. Yet limited on-the-ground monitoring and enforcement in remote areas has enabled illegal settlement and deforestation, while the Emberá community of San Juan Pequení Indígena La Bonga remains in legal limbo as it seeks collective land recognition under Panama’s 2008 Law 72. Working with Indigenous leaders, neighboring campesino residents, and Canal institutions, the project combines participatory research mapping with GIS and remote sensing to co-produce consensus land-use zones and locally grounded monitoring tools that can strengthen watershed governance and Canal water security.
       </p>
+<div class="about-seal">
+  <img src="images/labonga_seal.png" 
+       alt="Congreso Local de La Bonga Seal">
+</div>
 
     </div>
   </div>
@@ -794,6 +996,95 @@ url('images/palms.jpg') center/cover no-repeat;">
       </div>
     </details>
   </div>
+
+  <!-- NEW TEAM MEMBERS -->
+
+<div class="person-card">
+  <div class="person-top">
+    <img class="avatar" src="images/labonga_seal.jpg" alt="Marcelino Guatico">
+    <div>
+      <h3>Marcelino Guatico</h3>
+      <p class="role">Chief, Indigenous Community of San Juan Pequení La Bonga</p>
+      <div class="contact">
+        <span>Community Leadership</span>
+      </div>
+    </div>
+  </div>
+
+  <details class="bio-details">
+    <summary>View Bio</summary>
+    <div class="bio-panel">
+      <p>Marcelino Guatico serves as Chief of the Indigenous Community of San Juan Pequení La Bonga. He provides community leadership and guidance for participatory research mapping activities that support local governance, land-use planning, and long-term watershed stewardship.</p>
+      <p>As a central partner in the Chagres Initiative, he helps ensure the work remains community-driven, ethically grounded, and aligned with local priorities and decision-making processes.</p>
+    </div>
+  </details>
+</div>
+
+<div class="person-card">
+  <div class="person-top">
+    <img class="avatar" src="images/labonga_seal.jpg" alt="Elieser Adames">
+    <div>
+      <h3>Elieser Adames</h3>
+      <p class="role">Presidente, Indigenous Community of San Juan Pequení La Bonga</p>
+      <div class="contact">
+        <span>Community Leadership</span>
+      </div>
+    </div>
+  </div>
+
+  <details class="bio-details">
+    <summary>View Bio</summary>
+    <div class="bio-panel">
+      <p>Elieser Adames is Presidente of the Indigenous Community of San Juan Pequení La Bonga. He supports community coordination and communication around research activities, including workshop planning, participatory zoning discussions, and collaboration with institutional partners.</p>
+      <p>His leadership strengthens shared decision-making and supports the project’s goals of building locally grounded mapping tools for long-term watershed monitoring and governance.</p>
+    </div>
+  </details>
+</div>
+
+<div class="person-card">
+  <div class="person-top">
+    <img class="avatar" src="images/geog_logo.jpg" alt="Ollie Berwanger">
+    <div>
+      <h3>Ollie Berwanger</h3>
+      <p class="role">Undergraduate Researcher</p>
+      <div class="contact">
+        <a href="mailto:cash.berwanger@ku.edu">cash.berwanger@ku.edu</a>
+      </div>
+    </div>
+  </div>
+
+  <details class="bio-details">
+    <summary>View Bio</summary>
+    <div class="bio-panel">
+      <p>Ollie Berwanger is an undergraduate researcher supporting the Chagres Initiative. His work contributes to field preparation and documentation, assisting the research team with organizing materials, supporting data workflows, and helping translate field activities into clear public-facing updates.</p>
+      <p>As part of the student research team, Ollie strengthens the project’s educational mission and supports hands-on training in ethical field-based geography.</p>
+    </div>
+  </details>
+</div>
+
+<div class="person-card">
+  <div class="person-top">
+    <img class="avatar" src="images/geog_logo.jpg" alt="Oliver Zigmund">
+    <div>
+      <h3>Oliver Zigmund</h3>
+      <p class="role">Undergraduate Researcher</p>
+      <div class="contact">
+        <a href="mailto:oliverlzigmund@ku.edu">oliverlzigmund@ku.edu</a>
+      </div>
+    </div>
+  </div>
+
+  <details class="bio-details">
+    <summary>View Bio</summary>
+    <div class="bio-panel">
+      <p>Oliver Zigmund is an undergraduate researcher supporting the Chagres Initiative. He assists with field-ready logistics and project organization, helping the team maintain clear documentation practices and supporting the careful handling of maps, notes, and collaborative research outputs.</p>
+      <p>His role connects the project’s participatory methods to practical research support, strengthening both student training and overall project execution.</p>
+    </div>
+  </details>
+</div>
+
+<!-- /NEW TEAM MEMBERS -->
+
 </div>
 
   </div>
@@ -850,40 +1141,47 @@ url('images/palms.jpg') center/cover no-repeat;">
 
 <section>
   <div class="wrap">
-    <h2>Regional Context</h2>
+    <h2>Project Authorization</h2>
     <div class="panel">
-      <img src="images/container_ship_gatun.jpg" alt="Container ship on Gatun Lake" style="width:100%; border-radius:12px; margin-bottom:20px;">
+      <img src="images/chief_checking.jpg" alt="Discussing the geographic situation with Nokó Marcelino Guatico" style="width:75%; border-radius:12px; margin-bottom:20px; margin-left:auto; margin-right:auto; display:block;">
       <p>
-        The Panama Canal depends on freshwater stored in the Chagres watershed.
-        Climate variability and upstream land-use change threaten long-term water security.
-        Our initiative strengthens watershed governance at its ecological source.
+        During our team's visit to La Bonga during the summer of 2025, we visited the remote community twice in the village and with leadership many times in Panama City. During our second visit to the village of La Bonga, we presented openly the participatory research methodology to the group in Spanish. After understaind the potential of such a project, they unanimously voted in support of our project. Attached are the official, signed and sealed documents which legally authorize this work to be done under Law 72 of 2008.
       </p>
+      
+      <details class="documents-details">
+        <summary>View Authorization Documents</summary>
+        <div class="documents-list">
+          <a href="Documents/La_Bonga_Cartas.pdf" target="_blank" rel="noopener noreferrer">La Bonga Authorization Letters (PDF)</a>
+        </div>
+      </details>
     </div>
   </div>
 </section>
 
 <section id="methodology">
   <div class="wrap">
-    <h2>Participatory Research Mapping (PRM)</h2>
+    <h2>Stages of Participatory Research Mapping (PRM)</h2>
 
     <div class="method-grid">
       <div class="step">
-        <h3>1. Co-design</h3>
+        <h3>Stage One: Co-design</h3>
         <p>Define mapping goals collaboratively with community leadership.</p>
       </div>
       <div class="step">
-        <h3>2. Training</h3>
+        <h3>Stage Two: Training</h3>
         <p>Equip local researchers with GPS, mapping, and documentation tools.</p>
       </div>
       <div class="step">
-        <h3>3. Field Verification</h3>
+        <h3>Stage Three: Field Verification</h3>
         <p>Collect ground-truth points through shared site visits.</p>
       </div>
       <div class="step">
-        <h3>4. GIS Production</h3>
+        <h3>Stage Four: GIS Production</h3>
         <p>Digitize and standardize outputs for planning and governance use.</p>
       </div>
     </div>
+
+    <img src="images/community_meeting.jpg" alt="Community meeting for participatory research mapping" style="width:100%; border-radius:12px; margin:30px 0 0 0; display:block;">
   </div>
 </section>
 
@@ -899,6 +1197,7 @@ url('images/palms.jpg') center/cover no-repeat;">
         <img src="images/indigenous_band.jpg" alt="Indigenous cultural performance">
         <img src="images/indigenous_girl_smiling.jpg" alt="Community member portrait">
         <img src="images/chief_checking.jpg" alt="Community leadership engagement">
+        <img src="images/site_analysis.jpg" alt="Site analysis at Panamana Geographic Institute: Tommy Guardia">
         <img src="images/lizard.jpg" alt="Rainforest lizard">
         <img src="images/monkey.jpg" alt="Rainforest monkey">
       </div>

@@ -123,6 +123,12 @@ header{
 .dropdown:focus-within .dropdown-content{display:block}
 
 
+/* Anchor offset for sticky header */
+#field-blog,
+#official-reports {
+  scroll-margin-top: 100px;
+}
+
 .hero{
   background:linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
   url("images/hero.jpg") center/cover no-repeat;
@@ -842,19 +848,25 @@ header{
 </div>
 
     <div class="navlinks">
-  <a href="#about" data-i18n="nav_about">About</a>
-  <a href="#methodology" data-i18n="nav_methodology">Methodology</a>
-  <a href="#gallery" data-i18n="nav_fieldwork">Fieldwork</a>
-  <a href="#maps" data-i18n="nav_maps">Maps</a>
-<div class="dropdown">
-  <a href="#reports" class="dropbtn" data-i18n="nav_reports">Field Reports</a>
-  <div class="dropdown-content">
-    <a href="#field-blog" data-i18n="nav_blog">Field Blog</a>
-    <a href="#official-reports" data-i18n="nav_official">Official Reports</a>
+  <div class="dropdown">
+    <a href="#about" class="dropbtn" data-i18n="nav_about">About</a>
+    <div class="dropdown-content">
+      <a href="#authorization" data-i18n="nav_authorization">Project Authorization</a>
+    </div>
   </div>
-</div>
+  <a href="#methodology" data-i18n="nav_methodology">Methodology</a>
+  <div class="dropdown">
+    <a href="#gallery" class="dropbtn" data-i18n="nav_fieldwork">Fieldwork</a>
+    <div class="dropdown-content">
+      <a href="#maps" data-i18n="nav_maps">Maps</a>
+      <a href="#reports" data-i18n="nav_reports">Field Reports</a>
+      <a href="#field-blog" data-i18n="nav_blog">Field Blog</a>
+      <a href="#official-reports" data-i18n="nav_official">Official Reports</a>
+    </div>
+  </div>
   <a href="#donate" data-i18n="nav_donate">Donate</a>
   <a href="#team" data-i18n="nav_team">Team</a>
+  <a href="#faq" data-i18n="nav_faq">FAQs</a>
   <button class="lang-btn" id="langToggle">ES</button>
 </div>
   </div>
@@ -880,9 +892,9 @@ url('images/palms.jpg') center/cover no-repeat;">
 </p>
 
 <p class="donor-subhead">
-  Your contribution directly supports paid Indigenous research collaborators,
+  Your tax-deductable donation directly supports paid Indigenous research collaborators,
   participatory mapping workshops, watershed monitoring equipment,
-  and field support for KU and UT-Arlington student researchers working in the Chagres basin.
+  and field support for KU and UT-Arlington student researchers working to map Chagres National Park.
 </p>
 
   </div>
@@ -1139,19 +1151,19 @@ url('images/palms.jpg') center/cover no-repeat;">
 </section>
 
 
-<section>
+<section id="authorization">
   <div class="wrap">
-    <h2>Project Authorization</h2>
+    <h2 data-i18n="auth_title">Project Authorization</h2>
     <div class="panel">
       <img src="images/chief_checking.jpg" alt="Discussing the geographic situation with Nokó Marcelino Guatico" style="width:75%; border-radius:12px; margin-bottom:20px; margin-left:auto; margin-right:auto; display:block;">
-      <p>
+      <p data-i18n="auth_text">
         During our team's visit to La Bonga during the summer of 2025, we visited the remote community twice in the village and with leadership many times in Panama City. During our second visit to the village of La Bonga, we presented openly the participatory research methodology to the group in Spanish. After understaind the potential of such a project, they unanimously voted in support of our project. Attached are the official, signed and sealed documents which legally authorize this work to be done under Law 72 of 2008.
       </p>
       
       <details class="documents-details">
-        <summary>View Authorization Documents</summary>
+        <summary data-i18n="auth_docs">View Authorization Documents</summary>
         <div class="documents-list">
-          <a href="Documents/La_Bonga_Cartas.pdf" target="_blank" rel="noopener noreferrer">La Bonga Authorization Letters (PDF)</a>
+          <a href="Documents/La_Bonga_Cartas.pdf" target="_blank" rel="noopener noreferrer" data-i18n="auth_letters">La Bonga Authorization Letters (PDF)</a>
         </div>
       </details>
     </div>
@@ -1160,24 +1172,24 @@ url('images/palms.jpg') center/cover no-repeat;">
 
 <section id="methodology">
   <div class="wrap">
-    <h2>Stages of Participatory Research Mapping (PRM)</h2>
+    <h2 data-i18n="methodology_title">Stages of Participatory Research Mapping (PRM)</h2>
 
     <div class="method-grid">
       <div class="step">
-        <h3>Stage One: Co-design</h3>
-        <p>Define mapping goals collaboratively with community leadership.</p>
+        <h3 data-i18n="stage_one">Stage One: Co-design</h3>
+        <p data-i18n="stage_one_text">Define mapping goals collaboratively with community leadership.</p>
       </div>
       <div class="step">
-        <h3>Stage Two: Training</h3>
-        <p>Equip local researchers with GPS, mapping, and documentation tools.</p>
+        <h3 data-i18n="stage_two">Stage Two: Training</h3>
+        <p data-i18n="stage_two_text">Equip local researchers with GPS, mapping, and documentation tools.</p>
       </div>
       <div class="step">
-        <h3>Stage Three: Field Verification</h3>
-        <p>Collect ground-truth points through shared site visits.</p>
+        <h3 data-i18n="stage_three">Stage Three: Field Verification</h3>
+        <p data-i18n="stage_three_text">Collect ground-truth points through shared site visits.</p>
       </div>
       <div class="step">
-        <h3>Stage Four: GIS Production</h3>
-        <p>Digitize and standardize outputs for planning and governance use.</p>
+        <h3 data-i18n="stage_four">Stage Four: GIS Production</h3>
+        <p data-i18n="stage_four_text">Digitize and standardize outputs for planning and governance use.</p>
       </div>
     </div>
 
@@ -1187,7 +1199,7 @@ url('images/palms.jpg') center/cover no-repeat;">
 
 <section id="gallery">
   <div class="wrap">
-    <h2>Fieldwork & Landscape</h2>
+    <h2 data-i18n="gallery_title">Fieldwork & Landscape</h2>
 
     <div class="carousel" aria-label="Fieldwork photo gallery">
       <!-- Hidden list of slides (JS reads these) -->
@@ -1298,50 +1310,50 @@ url('images/palms.jpg') center/cover no-repeat;">
 
 <section id="faq">
   <div class="wrap">
-    <h2>Frequently Asked Questions</h2>
+    <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
 
     <div class="panel">
 
       <details>
-        <summary>Why does the health of Chagres National Park matter for people in the United States?</summary>
-        <p>Chagres National Park provides approximately 40 percent of the freshwater used in Panama Canal operations and roughly 80 percent of the drinking water for Panama City. The Canal remains one of the most strategically important global trade corridors, moving a significant portion of U.S.-bound maritime commerce.</p>
+        <summary data-i18n="faq_q1">Why does the health of Chagres National Park matter for people in the United States?</summary>
+        <p data-i18n="faq_a1_1">Chagres National Park provides approximately 40 percent of the freshwater used in Panama Canal operations and roughly 80 percent of the drinking water for Panama City. The Canal remains one of the most strategically important global trade corridors, moving a significant portion of U.S.-bound maritime commerce.</p>
         
-        <p>Recent droughts have demonstrated that water scarcity is the Canal’s greatest operational vulnerability. Long-term watershed health directly affects trade reliability, regional diplomatic stability, and economic security. While locally grounded, the ecological importance of this watershed extends well beyond Panama.</p>
+        <p data-i18n="faq_a1_2">Recent droughts have demonstrated that water scarcity is the Canal’s greatest operational vulnerability. Long-term watershed health directly affects trade reliability, regional diplomatic stability, and economic security. While locally grounded, the ecological importance of this watershed extends well beyond Panama.</p>
       </details>
 
       <details>
-        <summary>Who and what legal authority authorizes this project?</summary>
-        <p>This initiative proceeds only with community consent and institutional coordination. During a reconnaissance expedition in Summer 2025, the research team met with the Indigenous community of San Juan Pequeñí, participated in a formal Local Congress of Collective Lands, and received a written vote of approval and endorsement.</p>
+        <summary data-i18n="faq_q2">Who and what legal authority authorizes this project?</summary>
+        <p data-i18n="faq_a2_1">This initiative proceeds only with community consent and institutional coordination. During a reconnaissance expedition in Summer 2025, the research team met with the Indigenous community of San Juan Pequeñí, participated in a formal Local Congress of Collective Lands, and received a written vote of approval and endorsement.</p>
         
-        <p>This authorization aligns with Panama’s 2008 Law 72 governing "Tierras Colectivas" or Collective Indigenous Lands. The project continues only through collaborative agreement with community leadership.</p>
+        <p data-i18n="faq_a2_2">This authorization aligns with Panama’s 2008 Law 72 governing "Tierras Colectivas" or Collective Indigenous Lands. The project continues only through collaborative agreement with community leadership.</p>
       </details>
 
       <details>
-        <summary>How does mapping help protect an area like this?</summary>
-        <p>National park boundaries alone do not ensure protection. Effective stewardship requires understanding the ecological and social processes occurring within those boundaries.</p>
+        <summary data-i18n="faq_q3">How does mapping help protect an area like this?</summary>
+        <p data-i18n="faq_a3_1">National park boundaries alone do not ensure protection. Effective stewardship requires understanding the ecological and social processes occurring within those boundaries.</p>
         
-        <p>Participatory research mapping translates Indigenous geographic knowledge into structured, transferable formats that can support zoning, monitoring, and long-term governance planning. At a fundamental level, it is difficult to protect what is not clearly understood.</p>
+        <p data-i18n="faq_a3_2">Participatory research mapping translates Indigenous geographic knowledge into structured, transferable formats that can support zoning, monitoring, and long-term governance planning. At a fundamental level, it is difficult to protect what is not clearly understood.</p>
       </details>
 
       <details>
-        <summary>How are community members involved and compensated?</summary>
-        <p>Community members are trained as local geographers in GPS data collection and mapping techniques. Participants are compensated for their time and expertise.</p>
+        <summary data-i18n="faq_q4">How are community members involved and compensated?</summary>
+        <p data-i18n="faq_a4">Community members are trained as local geographers in GPS data collection and mapping techniques. Participants are compensated for their time and expertise.</p>
       </details>
 
       <details>
-        <summary>How long will the project take?</summary>
-        <p>The project is designed in three phases, depending on funding:</p>
+        <summary data-i18n="faq_q5">How long will the project take?</summary>
+        <p data-i18n="faq_a5_intro">The project is designed in three phases, depending on funding:</p>
 
-        <p><strong>Year 1:</strong> Participatory mapping and geospatial database development.</p>
-        <p><strong>Year 2:</strong> Consensus-driven zoning and development of community land-use guidelines.</p>
-        <p><strong>Year 3:</strong> Final map production, synthesis, and integration into management planning frameworks.</p>
+        <p data-i18n="faq_a5_y1"><strong>Year 1:</strong> Participatory mapping and geospatial database development.</p>
+        <p data-i18n="faq_a5_y2"><strong>Year 2:</strong> Consensus-driven zoning and development of community land-use guidelines.</p>
+        <p data-i18n="faq_a5_y3"><strong>Year 3:</strong> Final map production, synthesis, and integration into management planning frameworks.</p>
 
-        <p>This phased approach prioritizes thoroughness and long-term impact over speed.</p>
+        <p data-i18n="faq_a5_conclusion">This phased approach prioritizes thoroughness and long-term impact over speed.</p>
       </details>
 
       <details>
-        <summary>How will donated funds be used?</summary>
-        <p>Donated funds directly support field-based research and community collaboration. Primary expenditures include:</p>
+        <summary data-i18n="faq_q6">How will donated funds be used?</summary>
+        <p data-i18n="faq_a6_intro">Donated funds directly support field-based research and community collaboration. Primary expenditures include:</p>
 
         <ul>
         <li>Stipends for local Indigenous collaborators and community workshop participants.</li>
@@ -1351,22 +1363,22 @@ url('images/palms.jpg') center/cover no-repeat;">
         <li>Map production, translation, and dissemination of final materials.</li>
         </ul>
 
-        <p>Administrative costs are minimized through institutional partnership with the University of Kansas. The project prioritizes directing resources toward community engagement and durable conservation outcomes.</p>
+        <p data-i18n="faq_a6_conclusion">Administrative costs are minimized through institutional partnership with the University of Kansas. The project prioritizes directing resources toward community engagement and durable conservation outcomes.</p>
       </details>
 
       <details>
-        <summary>Is this project political?</summary>
-        <p>The project is non-partisan and research-driven. Its focus is watershed stewardship, participatory governance, and environmental monitoring.</p>
+        <summary data-i18n="faq_q7">Is this project political?</summary>
+        <p data-i18n="faq_a7">The project is non-partisan and research-driven. Its focus is watershed stewardship, participatory governance, and environmental monitoring.</p>
       </details>
 
       <details>
-        <summary>Will the data be publicly available?</summary>
-        <p>Final outputs will be shared publicly. Sensitive knowledge remains under community control in accordance with data sovereignty principles.</p>
+        <summary data-i18n="faq_q8">Will the data be publicly available?</summary>
+        <p data-i18n="faq_a8">Final outputs will be shared publicly. Sensitive knowledge remains under community control in accordance with data sovereignty principles.</p>
       </details>
 
       <details>
-        <summary>Can this model be replicated elsewhere?</summary>
-        <p>Yes. The framework combines participatory GIS, zoning, and institutional collaboration in a structured format designed to be adaptable to other protected areas.</p>
+        <summary data-i18n="faq_q9">Can this model be replicated elsewhere?</summary>
+        <p data-i18n="faq_a9">Yes. The framework combines participatory GIS, zoning, and institutional collaboration in a structured format designed to be adaptable to other protected areas.</p>
       </details>
 
     </div>
@@ -1477,10 +1489,15 @@ const translations = {
     nav_maps: "Mapas",
     nav_reports: "Informes de Campo",
     nav_donate: "Donar",
+    nav_authorization: "Autorización del Proyecto",
     nav_team: "Equipo",
+    nav_faq: "Preguntas Frecuentes",
     nav_blog: "Blog de Campo",
     nav_official: "Informes Oficiales",
 
+    auth_title: "Autorización del Proyecto",
+    methodology_title: "Etapas del Mapeo de Investigación Participativa (PRM)",
+    faq_title: "Preguntas Frecuentes",
 
     hero_title: "La Iniciativa Chagres",
     hero_subhead:
@@ -1509,7 +1526,93 @@ const translations = {
     blog_title: "Blog de Campo",
     blog_text: "Actualizaciones narrativas desde el campo, talleres de mapeo participativo y actividades de gestión de cuencas.",
     official_title: "Informes Oficiales",
-    official_text: "Informes formales, resúmenes del proyecto, documentación de subvenciones y resultados técnicos."
+    official_text: "Informes formales, resúmenes del proyecto, documentación de subvenciones y resultados técnicos.",
+
+    faq_q1: "¿Por qué es importante la salud del Parque Nacional Chagres para las personas en Estados Unidos?",
+    faq_a1_1: "El Parque Nacional Chagres proporciona aproximadamente el 40 por ciento del agua dulce utilizada en las operaciones del Canal de Panamá y aproximadamente el 80 por ciento del agua potable para la Ciudad de Panamá. El Canal sigue siendo uno de los corredores comerciales globales más estratégicamente importantes, moviendo una porción significativa del comercio marítimo destinado a Estados Unidos.",
+    faq_a1_2: "Las sequías recientes han demostrado que la escasez de agua es la mayor vulnerabilidad operativa del Canal. La salud a largo plazo de la cuenca afecta directamente la confiabilidad del comercio, la estabilidad diplomática regional y la seguridad económica. Aunque es localmente fundamentada, la importancia ecológica de esta cuenca se extiende mucho más allá de Panamá.",
+    
+    faq_q2: "¿Quién y qué autoridad legal autoriza este proyecto?",
+    faq_a2_1: "Esta iniciativa procede solo con el consentimiento de la comunidad y la coordinación institucional. Durante una expedición de reconocimiento en el verano de 2025, el equipo de investigación se reunió con la comunidad indígena de San Juan Pequeñí, participó en un Congreso Local formal de Tierras Colectivas y recibió un voto escrito de aprobación y respaldo.",
+    faq_a2_2: "Esta autorización se alinea con la Ley 72 de 2008 de Panamá que rige las \"Tierras Colectivas\" o Tierras Indígenas Colectivas. El proyecto continúa solo a través de un acuerdo colaborativo con el liderazgo de la comunidad.",
+    
+    faq_q3: "¿Cómo ayuda el mapeo a proteger un área como esta?",
+    faq_a3_1: "Los límites del parque nacional por sí solos no aseguran protección. El manejo efectivo requiere entender los procesos ecológicos y sociales que ocurren dentro de esos límites.",
+    faq_a3_2: "El mapeo de investigación participativa traduce el conocimiento geográfico indígena en formatos estructurados y transferibles que pueden apoyar la zonificación, monitoreo y planificación de gobernanza a largo plazo. En un nivel fundamental, es difícil proteger lo que no se entiende claramente.",
+    
+    faq_q4: "¿Cómo se involucran y compensan a los miembros de la comunidad?",
+    faq_a4: "Los miembros de la comunidad son capacitados como geógrafos locales en recopilación de datos GPS y técnicas de mapeo. Los participantes reciben compensación por su tiempo y experiencia.",
+    
+    faq_q5: "¿Cuánto tiempo llevará el proyecto?",
+    faq_a5_intro: "El proyecto está diseñado en tres fases, dependiendo del financiamiento:",
+    faq_a5_y1: "Año 1: Mapeo participativo y desarrollo de base de datos geoespacial.",
+    faq_a5_y2: "Año 2: Zonificación impulsada por consenso y desarrollo de directrices de uso de suelo de la comunidad.",
+    faq_a5_y3: "Año 3: Producción final de mapas, síntesis e integración en marcos de planificación de gestión.",
+    faq_a5_conclusion: "Este enfoque por fases prioriza la exhaustividad y el impacto a largo plazo sobre la velocidad.",
+    
+    faq_q6: "¿Cómo se utilizarán los fondos donados?",
+    faq_a6_intro: "Los fondos donados apoyan directamente la investigación basada en campo y la colaboración comunitaria. Los gastos principales incluyen:",
+    faq_a6_conclusion: "Los costos administrativos se minimizan a través de asociación institucional con la Universidad de Kansas. El proyecto prioriza dirigir recursos hacia la participación comunitaria y resultados de conservación duraderos.",
+    
+    faq_q7: "¿Es este proyecto político?",
+    faq_a7: "El proyecto es no partidista e impulsado por la investigación. Su enfoque es la administración de cuencas, la gobernanza participativa y el monitoreo ambiental.",
+    
+    faq_q8: "¿Los datos estarán disponibles públicamente?",
+    faq_a8: "Los resultados finales se compartirán públicamente. El conocimiento sensible permanece bajo control comunitario de acuerdo con los principios de soberanía de datos.",
+    
+    faq_q9: "¿Se puede replicar este modelo en otros lugares?",
+    faq_a9: "Sí. El marco combina SIG participativo, zonificación y colaboración institucional en un formato estructurado diseñado para ser adaptable a otras áreas protegidas.",
+
+    faq_q1: "¿Por qué es importante la salud del Parque Nacional Chagres para las personas en Estados Unidos?",
+    faq_a1_1: "El Parque Nacional Chagres proporciona aproximadamente el 40 por ciento del agua dulce utilizada en las operaciones del Canal de Panamá y aproximadamente el 80 por ciento del agua potable para la Ciudad de Panamá. El Canal sigue siendo uno de los corredores comerciales globales más estratégicamente importantes, moviendo una porción significativa del comercio marítimo destinado a Estados Unidos.",
+    faq_a1_2: "Las sequías recientes han demostrado que la escasez de agua es la mayor vulnerabilidad operativa del Canal. La salud a largo plazo de la cuenca afecta directamente la confiabilidad del comercio, la estabilidad diplomática regional y la seguridad económica. Aunque es localmente fundamentada, la importancia ecológica de esta cuenca se extiende mucho más allá de Panamá.",
+    
+    faq_q2: "¿Quién y qué autoridad legal autoriza este proyecto?",
+    faq_a2_1: "Esta iniciativa procede solo con el consentimiento de la comunidad y la coordinación institucional. Durante una expedición de reconocimiento en el verano de 2025, el equipo de investigación se reunió con la comunidad indígena de San Juan Pequeñí, participó en un Congreso Local formal de Tierras Colectivas y recibió un voto escrito de aprobación y respaldo.",
+    faq_a2_2: "Esta autorización se alinea con la Ley 72 de 2008 de Panamá que rige las \"Tierras Colectivas\" o Tierras Indígenas Colectivas. El proyecto continúa solo a través de un acuerdo colaborativo con el liderazgo de la comunidad.",
+    
+    faq_q3: "¿Cómo ayuda el mapeo a proteger un área como esta?",
+    faq_a3_1: "Los límites del parque nacional por sí solos no aseguran protección. El manejo efectivo requiere entender los procesos ecológicos y sociales que ocurren dentro de esos límites.",
+    faq_a3_2: "El mapeo de investigación participativa traduce el conocimiento geográfico indígena en formatos estructurados y transferibles que pueden apoyar la zonificación, monitoreo y planificación de gobernanza a largo plazo. En un nivel fundamental, es difícil proteger lo que no se entiende claramente.",
+    
+    faq_q4: "¿Cómo se involucran y compensan a los miembros de la comunidad?",
+    faq_a4: "Los miembros de la comunidad son capacitados como geógrafos locales en recopilación de datos GPS y técnicas de mapeo. Los participantes reciben compensación por su tiempo y experiencia.",
+    
+    faq_q5: "¿Cuánto tiempo llevará el proyecto?",
+    faq_a5_intro: "El proyecto está diseñado en tres fases, dependiendo del financiamiento:",
+    faq_a5_y1: "Año 1: Mapeo participativo y desarrollo de base de datos geoespacial.",
+    faq_a5_y2: "Año 2: Zonificación impulsada por consenso y desarrollo de directrices de uso de suelo de la comunidad.",
+    faq_a5_y3: "Año 3: Producción final de mapas, síntesis e integración en marcos de planificación de gestión.",
+    faq_a5_conclusion: "Este enfoque por fases prioriza la exhaustividad y el impacto a largo plazo sobre la velocidad.",
+    
+    faq_q6: "¿Cómo se utilizarán los fondos donados?",
+    faq_a6_intro: "Los fondos donados apoyan directamente la investigación basada en campo y la colaboración comunitaria. Los gastos principales incluyen:",
+    faq_a6_list: "Estipendios para colaboradores indígenas locales y participantes de talleres comunitarios. Equipo de campo como unidades GPS, dispositivos de almacenamiento de datos y suministros de mapeo. Talleres comunitarios y sesiones de zonificación participativa. Viajes y logística de campo requeridos para acceder a áreas remotas de cuencas. Producción de mapas, traducción y diseminación de materiales finales.",
+    faq_a6_conclusion: "Los costos administrativos se minimizan a través de asociación institucional con la Universidad de Kansas. El proyecto prioriza dirigir recursos hacia la participación comunitaria y resultados de conservación duraderos.",
+    
+    faq_q7: "¿Es este proyecto político?",
+    faq_a7: "El proyecto es no partidista e impulsado por la investigación. Su enfoque es la administración de cuencas, la gobernanza participativa y el monitoreo ambiental.",
+    
+    faq_q8: "¿Los datos estarán disponibles públicamente?",
+    faq_a8: "Los resultados finales se compartirán públicamente. El conocimiento sensible permanece bajo control comunitario de acuerdo con los principios de soberanía de datos.",
+    
+    faq_q9: "¿Se puede replicar este modelo en otros lugares?",
+    faq_a9: "Sí. El marco combina SIG participativo, zonificación y colaboración institucional en un formato estructurado diseñado para ser adaptable a otras áreas protegidas.",
+
+    gallery_title: "Trabajo de Campo y Paisaje",
+
+    stage_one: "Etapa Uno: Co-diseño",
+    stage_one_text: "Definir objetivos de mapeo de manera colaborativa con el liderazgo de la comunidad.",
+    stage_two: "Etapa Dos: Capacitación",
+    stage_two_text: "Equipar a investigadores locales con herramientas de GPS, mapeo y documentación.",
+    stage_three: "Etapa Tres: Verificación en Campo",
+    stage_three_text: "Recopilar puntos de verdad en el terreno a través de visitas compartidas.",
+    stage_four: "Etapa Cuatro: Producción SIG",
+    stage_four_text: "Digitalizar y estandarizar resultados para uso en planificación y gobernanza.",
+
+    auth_text: "Durante la visita de nuestro equipo a La Bonga en el verano de 2025, visitamos la comunidad remota dos veces en la aldea y nos reunimos con el liderazgo muchas veces en la Ciudad de Panamá. Durante nuestra segunda visita a la aldea de La Bonga, presentamos abiertamente la metodología de investigación participativa al grupo en español. Después de entender el potencial de tal proyecto, votaron unánimemente en apoyo de nuestro proyecto. Adjuntos están los documentos oficiales, firmados y sellados, que autorizan legalmente este trabajo bajo la Ley 72 de 2008.",
+    auth_docs: "Ver Documentos de Autorización",
+    auth_letters: "Cartas de Autorización de La Bonga (PDF)"
 
   }
 };

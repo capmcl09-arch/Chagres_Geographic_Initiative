@@ -53,7 +53,8 @@ header{
   border-bottom:1px solid var(--line);
   padding:14px 0;
   z-index:10000;
- }
+  overflow:visible;
+}
 
 
 .nav{
@@ -65,64 +66,109 @@ header{
 .navlinks{
   display:flex;
   align-items:center;
-  gap:18px;
-  justify-content: space-around;
+  gap:24px;
+  justify-content:center;
   flex:1;
+  padding:0 20px;
 }
 
-.navlinks a{
-  margin-left:0;
+.navlinks a,
+.navlinks .dropdown .dropbtn{
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
+  padding:8px 0;
+  white-space:nowrap;
+  transition:color 0.15s ease;
 }
-.navlinks a:hover{color:var(--text)}
-/* Dropdown navigation (Reports) */
+
+.navlinks a:hover,
+.navlinks .dropdown .dropbtn:hover{
+  color:var(--text);
+}
+/* Dropdown navigation */
 .dropdown{
   position:relative;
   display:inline-block;
 }
 
 .dropdown .dropbtn{
-  margin-left:18px;
+  padding:8px 0;
+  margin:0;
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  white-space:nowrap;
 }
 
-.dropdown .dropbtn:hover{color:var(--text)}
+.dropdown .dropbtn:hover{
+  color:var(--text);
+}
 
 .dropdown-content{
   display:none;
   position:absolute;
-  top:28px;
-  right:0;
-  min-width:200px;
+  top:calc(100% + 4px);
+  left:50%;
+  transform:translateX(-50%);
+  min-width:220px;
   background:#0c1328;
   border:1px solid var(--line);
   border-radius:12px;
-  box-shadow:var(--shadow);
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
   padding:8px 0;
-  z-index:9999;
+  z-index:10001;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.2s ease, pointer-events 0.2s ease;
 }
 
 .dropdown-content a{
   display:block;
-  padding:10px 12px;
+  padding:10px 16px;
   margin:0;
   color:var(--muted);
   text-decoration:none;
   font-size:13px;
+  white-space:nowrap;
+  transition:background 0.15s ease, color 0.15s ease;
 }
 
-.dropdown-content a:hover{
+.dropdown-content a:first-child{
+  border-radius:8px 8px 0 0;
+}
+
+.dropdown-content a:last-child{
+  border-radius:0 0 8px 8px;
+}
+
+.dropdown-content a:hover,
+.dropdown-content a:focus{
   color:var(--text);
-  background:rgba(255,255,255,.06);
+  background:rgba(255,255,255,.08);
 }
 
 /* Open on hover + keyboard focus */
-.dropdown:hover .dropdown-content{display:block}
-.dropdown:focus-within .dropdown-content{display:block}
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content{
+  display:block;
+  pointer-events:auto;
+  opacity:1;
+}
+
+/* Prevent dropdown close on hover near button */
+.dropdown .dropbtn:hover::after{
+  content:'';
+  position:absolute;
+  top:100%;
+  left:0;
+  right:0;
+  height:8px;
+  background:transparent;
+}
 
 
 /* Anchor offset for sticky header */

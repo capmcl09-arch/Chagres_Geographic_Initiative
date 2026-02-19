@@ -41,7 +41,7 @@ section{padding:60px 0}
 section{ scroll-margin-top: 90px; }
 
 
-h1{font-size:38px; margin-bottom:14px}
+h1{font-size:50px; margin-bottom:14px; font-family: "Times New Roman", Times, serif;}
 h2{font-size:24px; margin-bottom:16px}
 h3{font-size:18px; margin-bottom:8px}
 p{color:var(--muted)}
@@ -66,6 +66,8 @@ header{
   display:flex;
   align-items:center;
   gap:18px;
+  justify-content: space-around;
+  flex:1;
 }
 
 .navlinks a{
@@ -132,7 +134,7 @@ header{
 .hero{
   background:linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
   url("images/hero.jpg") center/cover no-repeat;
-  padding:120px 0;
+  padding:40px 0 120px 0;
   text-align:center;
 }
 
@@ -219,14 +221,14 @@ header{
 }
 
 .hero-signatures{
-  background:rgba(255,255,255,.97);
-  padding:28px 40px;
+  background:rgba(255,255,255,.95);
+  padding:8px 12px;
   border-radius:18px;
-  box-shadow:0 14px 30px rgba(0,0,0,.45);
+  box-shadow:0 8px 24px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.2);
 
   /* subtle texture effect */
-  backdrop-filter: blur(2px);
-  border:1px solid rgba(0,0,0,.08);
+  backdrop-filter: blur(4px);
+  border:3px solid rgba(56, 142, 60, .4);
 }
 
 @media (max-width: 640px){
@@ -244,8 +246,8 @@ header{
 
 
 .cta-line{
-  margin-top:32px;
-  font-size:28px;
+  margin-top:18px;
+  font-size:20px;
   font-weight:900;
   letter-spacing:.6px;
   text-transform:uppercase;
@@ -286,8 +288,8 @@ header{
 }
 
 .donor-subhead{
-  margin-top:14px;
-  font-size:16px;
+  margin-top:10px;
+  font-size:13px;
   color:var(--muted);
   max-width:850px;
   margin-left:auto;
@@ -907,13 +909,14 @@ url('images/palms.jpg') center/cover no-repeat;">
   </div>
 </div>
 
+<img src="images/poem.png" alt="Poem" style="width: 360px; height: auto; margin: 30px auto 0; display: block; opacity: 0.95;">
 
 </section>
 
 
 <section id="about">
   <div class="wrap">
-    <h2>About the Initiative</h2>
+    <h2 data-i18n="about_title">About the Initiative</h2>
     <div class="panel">
       <p data-i18n="about_text">
   The Chagres Initiative is a community-based participatory zoning and monitoring effort in the Río Pequení sub-basin of Chagres National Park, the most strategically important watershed in the Panama Canal system. The park supplies an estimated 40 percent of the water used in Canal operations and about 80 percent of Panama City’s drinking water. Yet limited on-the-ground monitoring and enforcement in remote areas has enabled illegal settlement and deforestation, while the Emberá community of San Juan Pequení Indígena La Bonga remains in legal limbo as it seeks collective land recognition under Panama’s 2008 Law 72. Working with Indigenous leaders, neighboring campesino residents, and Canal institutions, the project combines participatory research mapping with GIS and remote sensing to co-produce consensus land-use zones and locally grounded monitoring tools that can strengthen watershed governance and Canal water security.
@@ -929,223 +932,222 @@ url('images/palms.jpg') center/cover no-repeat;">
 
 <section id="team">
   <div class="wrap">
-    <h2>Research Team</h2>
+    <h2 data-i18n="team_title">Research Team</h2>
 
-    <img src="images/team.jpg" alt="Research team in Panama" style="width:100%; border-radius:12px; margin-bottom:20px;">
+    <img src="images/Team.JPG" alt="Research team in Panama" style="width:100%; border-radius:12px; margin-bottom:20px;">
 
+    <!-- University of Kansas Personnel -->
+    <h3 style="margin-top:40px; margin-bottom:20px; color:var(--text); font-size:20px;">University of Kansas Personnel</h3>
     <div class="team-grid">
-  <div class="person-card">
-    <div class="person-top">
-      <img class="avatar" src="images/peter1.jpg" alt="Peter Herlihy">
-      <div>
-        <h3>Dr. Peter Herlihy</h3>
-        <p class="role">Professor, University of Kansas</p>
-        <div class="contact"><a href="mailto:herlihy@ku.edu">herlihy@ku.edu</a></div>
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/peter1.jpg" alt="Peter Herlihy">
+          <div>
+            <h3>Dr. Peter Herlihy</h3>
+            <div class="contact"><a href="mailto:herlihy@ku.edu">herlihy@ku.edu</a></div>
+          </div>
+        </div>
+        <details class="bio-details bio-herlihy">
+          <summary data-i18n="team_view_bio_es">View Bio</summary>
+          <div class="bio-panel">
+            <p>Peter Herlihy is a professor of Geography at the University of Kansas and a leading scholar in participatory research mapping (PRM). For more than two decades, his fieldwork in Latin America, particularly in Panama's Darién region, has advanced collaborative mapping methods that integrate Indigenous geographic knowledge with formal GIS systems.</p>
+            <p>His work has informed land titling processes, territorial governance frameworks, and community-based conservation planning. At KU, he has trained generations of geographers in ethical, field-based research and continues to innovate participatory GIS methodologies that bridge academia and community governance.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/cap.png" alt="Cap McLiney">
+          <div>
+            <h3>Cap McLiney</h3>
+            <div class="contact"><a href="mailto:cmclineyjr@ku.edu">cmclineyjr@ku.edu</a></div>
+          </div>
+        </div>
+        <details class="bio-details">
+          <summary>View Bio</summary>
+          <div class="bio-panel">
+            <p>Cap McLiney is a Ph.D. student in Geography at the University of Kansas. He wrote his M.A. at KU, where his thesis research examined Old Colony Mennonite settlement and land-use change in the Peruvian Amazon. His doctoral work now focuses on participatory research mapping and watershed governance in Panama's Chagres National Park.</p>
+            <p>He received his undergraduate degree from Wake Forest University and is a lifelong Kansan and dedicated Jayhawk. His research integrates field-based geography, GIS analysis, and community collaboration to better understand how land, culture, and governance intersect across the Americas.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/sam.jpg" alt="Sam Morrow">
+          <div>
+            <h3>Sam Morrow</h3>
+            <div class="contact"><a href="mailto:sam.morrow@ku.edu">sam.morrow@ku.edu</a></div>
+          </div>
+        </div>
+        <details class="bio-details">
+          <summary data-i18n="team_view_bio_es">View Bio</summary>
+          <div class="bio-panel">
+            <p>Sam Morrow is an MA student specializing in Panama Canal watershed management in the Río Indio basin for his master's thesis. Sam attended Rhodes College in Memphis and is an integral part of the field team as he brings GIS specialization which he applies to our project.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/geog_logo.jpg" alt="Ollie Berwanger">
+          <div>
+            <h3>Ollie Berwanger</h3>
+            <div class="contact"><a href="mailto:cash.berwanger@ku.edu">cash.berwanger@ku.edu</a></div>
+          </div>
+        </div>
+        <details class="bio-details">
+          <summary data-i18n="team_view_bio_es">View Bio</summary>
+          <div class="bio-panel">
+            <p>Ollie Berwanger is an undergraduate researcher supporting the Chagres Initiative. His work contributes to field preparation and documentation, assisting the research team with organizing materials, supporting data workflows, and helping translate field activities into clear public-facing updates.</p>
+            <p>As part of the student research team, Ollie strengthens the project's educational mission and supports hands-on training in ethical field-based geography.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/geog_logo.jpg" alt="Oliver Zigmund">
+          <div>
+            <h3>Oliver Zigmund</h3>
+            <div class="contact"><a href="mailto:oliverlzigmund@ku.edu">oliverlzigmund@ku.edu</a></div>
+          </div>
+        </div>
+        <details class="bio-details">
+          <summary data-i18n="team_view_bio_es">View Bio</summary>
+          <div class="bio-panel">
+            <p>Oliver Zigmund is an undergraduate researcher supporting the Chagres Initiative. He assists with field-ready logistics and project organization, helping the team maintain clear documentation practices and supporting the careful handling of maps, notes, and collaborative research outputs.</p>
+            <p>His role connects the project's participatory methods to practical research support, strengthening both student training and overall project execution.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/Hipp_Headshot.jpg" alt="Amali Hipp">
+          <div>
+            <h3>Amali Hipp</h3>
+            <div class="contact"><a href="mailto:ahippe@ku.edu">ahippe@ku.edu</a></div>
+          </div>
+        </div>
+        <details class="bio-details">
+          <summary data-i18n="team_view_bio_es">View Bio</summary>
+          <div class="bio-panel">
+            <p>Amali Hipp is a PhD student in Anthropology at the University of Kansas. Her research interests focus on the intersection of Indigenous knowledge systems, participatory research methodologies, and community-based conservation. She brings ethnographic expertise to the Chagres Initiative, supporting collaborative interactions with community stakeholders and exploring how traditional ecological knowledge complements academic GIS and mapping approaches.</p>
+            <p>Through her doctoral work, Amali contributes to the project's commitment to ethical, participatory research that values and integrates diverse ways of knowing and territorial stewardship.</p>
+          </div>
+        </details>
       </div>
     </div>
 
-    <details class="bio-details bio-herlihy">
-      <summary>View Bio</summary>
-      <div class="bio-panel">
-      <p>Peter Herlihy is Professor of Geography at the University of Kansas and a leading scholar in participatory research mapping (PRM). For more than two decades, his fieldwork in Latin America, particularly in Panama’s Darién region, has advanced collaborative mapping methods that integrate Indigenous geographic knowledge with formal GIS systems.</p>
-      <p>His work has informed land titling processes, territorial governance frameworks, and community-based conservation planning. At KU, he has trained generations of geographers in ethical, field-based research and continues to innovate participatory GIS methodologies that bridge academia and community governance.</p>
-      </div>
-    </details>
-  </div>
-
-  <div class="person-card">
-    <div class="person-top">
-      <img class="avatar" src="images/taylor.jpg" alt="Taylor Tappan">
-      <div>
-        <h3>Dr. Taylor Tappan</h3>
-        <p class="role">Associate Professor, University of Texas at Arlington</p>
-        <div class="contact"><a href="mailto:taylor.tappan@uta.edu">taylor.tappan@uta.edu</a></div>
-      </div>
-    </div>
-
-    <details class="bio-details">
-      <summary>View Bio</summary>
-      <div class="bio-panel">
-      <p>Taylor Tappan is a geospatial researcher and lecturer at the University of Texas at Arlington specializing in remote sensing, land-use change analysis, and applied GIS. A “super Jayhawk,” he completed his undergraduate degree, M.A., and Ph.D. at the University of Kansas under the mentorship of Peter Herlihy.</p>
-      <p>His work uses satellite imagery and spatial modeling to analyze landscape transformation and environmental change across Latin America. Tappan’s expertise in high-resolution spatial data and watershed-scale analysis strengthens the technical foundation of the Chagres initiative, supporting rigorous mapping and long-term environmental monitoring.</p>
-      </div>
-    </details>
-  </div>
-
-  <div class="person-card">
-    <div class="person-top">
-      <img class="avatar" src="images/cap.png" alt="Cap McLiney">
-      <div>
-        <h3>Cap McLiney</h3>
-        <p class="role">PhD Student, University of Kansas</p>
-        <div class="contact"><a href="mailto:cmclineyjr@ku.edu">cmclineyjr@ku.edu</a></div>
+    <!-- University of Texas at Arlington Personnel -->
+    <h3 style="margin-top:40px; margin-bottom:20px; color:var(--text); font-size:20px;">University of Texas at Arlington Personnel</h3>
+    <div class="team-grid">
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/taylor.jpg" alt="Taylor Tappan">
+          <div>
+            <h3>Dr. Taylor Tappan</h3>
+            <div class="contact"><a href="mailto:taylor.tappan@uta.edu">taylor.tappan@uta.edu</a></div>
+          </div>
+        </div>
+        <details class="bio-details">
+          <summary data-i18n="team_view_bio_es">View Bio</summary>
+          <div class="bio-panel">
+            <p>Taylor Tappan is a geospatial researcher and lecturer at the University of Texas at Arlington specializing in remote sensing, land-use change analysis, and applied GIS. A "super Jayhawk," he completed his undergraduate degree, M.A., and Ph.D. at the University of Kansas under the mentorship of Peter Herlihy.</p>
+            <p>His work uses satellite imagery and spatial modeling to analyze landscape transformation and environmental change across Latin America. Tappan's expertise in high-resolution spatial data and watershed-scale analysis strengthens the technical foundation of the Chagres initiative, supporting rigorous mapping and long-term environmental monitoring.</p>
+          </div>
+        </details>
       </div>
     </div>
 
-    <details class="bio-details">
-      <summary>View Bio</summary>
-      <div class="bio-panel">
-      <p>Cap McLiney is a Ph.D. student in Geography at the University of Kansas. He wrote his M.A. at KU, where his thesis research examined Old Colony Mennonite settlement and land-use change in the Peruvian Amazon. His doctoral work now focuses on participatory research mapping and watershed governance in Panama’s Chagres National Park.</p>
-      <p>He received his undergraduate degree from Wake Forest University and is a lifelong Kansan and dedicated Jayhawk. His research integrates field-based geography, GIS analysis, and community collaboration to better understand how land, culture, and governance intersect across the Americas.</p>
+    <!-- La Bonga Personnel -->
+    <h3 style="margin-top:40px; margin-bottom:20px; color:var(--text); font-size:20px;">La Bonga Personnel</h3>
+    <div class="team-grid">
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/labonga_seal.jpg" alt="Marcelino Guatico">
+          <div>
+            <h3>Marcelino Guatico</h3>
+            <div class="contact"><span data-i18n="team_leadership_es">Community Leadership</span></div>
+          </div>
+        </div>
+        <details class="bio-details">
+          <summary data-i18n="team_view_bio_es">View Bio</summary>
+          <div class="bio-panel">
+            <p>Marcelino Guatico is Chief of the Indigenous Community of San Juan Pequení La Bonga. He provides community leadership and guidance for participatory research mapping activities that support local governance, land-use planning, and long-term watershed stewardship.</p>
+            <p>As a central partner in the Chagres Initiative, he helps ensure the work remains community-driven, ethically grounded, and aligned with local priorities and decision-making processes.</p>
+          </div>
+        </details>
       </div>
-    </details>
-  </div>
 
-  <div class="person-card">
-    <div class="person-top">
-      <img class="avatar" src="images/sam.jpg" alt="Sam Morrow">
-      <div>
-        <h3>Sam Morrow</h3>
-        <p class="role">MA Student, University of Kansas</p>
-        <div class="contact"><a href="mailto:sam.morrow@ku.edu">sam.morrow@ku.edu</a></div>
-      </div>
-    </div>
-
-    <details class="bio-details">
-      <summary>View Bio</summary>
-      <div class="bio-panel">
-      <p>Specializing in Panama Canal watershed managment in the Río Indio basin for his master's thesis. Sam attended Rhodes College in Memphis and is an integral part of the field team as he brings GIS specialization which he applies to our project.</p>
-      </div>
-    </details>
-  </div>
-
-  <!-- NEW TEAM MEMBERS -->
-
-<div class="person-card">
-  <div class="person-top">
-    <img class="avatar" src="images/labonga_seal.jpg" alt="Marcelino Guatico">
-    <div>
-      <h3>Marcelino Guatico</h3>
-      <p class="role">Chief, Indigenous Community of San Juan Pequení La Bonga</p>
-      <div class="contact">
-        <span>Community Leadership</span>
+      <div class="person-card">
+        <div class="person-top">
+          <img class="avatar" src="images/labonga_seal.jpg" alt="Elieser Adames">
+          <div>
+            <h3>Elieser Adames</h3>
+            <div class="contact"><span data-i18n="team_leadership_es">Community Leadership</span></div>
+          </div>
+        </div>
+        <details class="bio-details">
+          <summary data-i18n="team_view_bio_es">View Bio</summary>
+          <div class="bio-panel">
+            <p>Elieser Adames is President of the Indigenous Community of San Juan Pequení La Bonga. He supports community coordination and communication around research activities, including workshop planning, participatory zoning discussions, and collaboration with institutional partners.</p>
+            <p>His leadership strengthens shared decision-making and supports the project's goals of building locally grounded mapping tools for long-term watershed monitoring and governance.</p>
+          </div>
+        </details>
       </div>
     </div>
-  </div>
-
-  <details class="bio-details">
-    <summary>View Bio</summary>
-    <div class="bio-panel">
-      <p>Marcelino Guatico serves as Chief of the Indigenous Community of San Juan Pequení La Bonga. He provides community leadership and guidance for participatory research mapping activities that support local governance, land-use planning, and long-term watershed stewardship.</p>
-      <p>As a central partner in the Chagres Initiative, he helps ensure the work remains community-driven, ethically grounded, and aligned with local priorities and decision-making processes.</p>
-    </div>
-  </details>
-</div>
-
-<div class="person-card">
-  <div class="person-top">
-    <img class="avatar" src="images/labonga_seal.jpg" alt="Elieser Adames">
-    <div>
-      <h3>Elieser Adames</h3>
-      <p class="role">Presidente, Indigenous Community of San Juan Pequení La Bonga</p>
-      <div class="contact">
-        <span>Community Leadership</span>
-      </div>
-    </div>
-  </div>
-
-  <details class="bio-details">
-    <summary>View Bio</summary>
-    <div class="bio-panel">
-      <p>Elieser Adames is Presidente of the Indigenous Community of San Juan Pequení La Bonga. He supports community coordination and communication around research activities, including workshop planning, participatory zoning discussions, and collaboration with institutional partners.</p>
-      <p>His leadership strengthens shared decision-making and supports the project’s goals of building locally grounded mapping tools for long-term watershed monitoring and governance.</p>
-    </div>
-  </details>
-</div>
-
-<div class="person-card">
-  <div class="person-top">
-    <img class="avatar" src="images/geog_logo.jpg" alt="Ollie Berwanger">
-    <div>
-      <h3>Ollie Berwanger</h3>
-      <p class="role">Undergraduate Researcher</p>
-      <div class="contact">
-        <a href="mailto:cash.berwanger@ku.edu">cash.berwanger@ku.edu</a>
-      </div>
-    </div>
-  </div>
-
-  <details class="bio-details">
-    <summary>View Bio</summary>
-    <div class="bio-panel">
-      <p>Ollie Berwanger is an undergraduate researcher supporting the Chagres Initiative. His work contributes to field preparation and documentation, assisting the research team with organizing materials, supporting data workflows, and helping translate field activities into clear public-facing updates.</p>
-      <p>As part of the student research team, Ollie strengthens the project’s educational mission and supports hands-on training in ethical field-based geography.</p>
-    </div>
-  </details>
-</div>
-
-<div class="person-card">
-  <div class="person-top">
-    <img class="avatar" src="images/geog_logo.jpg" alt="Oliver Zigmund">
-    <div>
-      <h3>Oliver Zigmund</h3>
-      <p class="role">Undergraduate Researcher</p>
-      <div class="contact">
-        <a href="mailto:oliverlzigmund@ku.edu">oliverlzigmund@ku.edu</a>
-      </div>
-    </div>
-  </div>
-
-  <details class="bio-details">
-    <summary>View Bio</summary>
-    <div class="bio-panel">
-      <p>Oliver Zigmund is an undergraduate researcher supporting the Chagres Initiative. He assists with field-ready logistics and project organization, helping the team maintain clear documentation practices and supporting the careful handling of maps, notes, and collaborative research outputs.</p>
-      <p>His role connects the project’s participatory methods to practical research support, strengthening both student training and overall project execution.</p>
-    </div>
-  </details>
-</div>
-
-<!-- /NEW TEAM MEMBERS -->
-
-</div>
 
   </div>
 </section>
+
 
 <section id="meaningful">
   <div class="wrap">
     <h2>What Makes This Project Uniquely Meaningful?</h2>
 
     <div class="panel">
-      <p>
+      <p data-i18n="meaning_intro">
         This initiative is designed not simply to generate data, but to cultivate geographic knowledge that is ethical, transparent, institutionally grounded, and practically applied. In an era when research can become detached from the communities it studies, this project centers meaning in both method and outcome.
       </p>
 
-      <h3>1. Co-Produced, Not Extractive</h3>
-      <p>
+      <h3 data-i18n="principle_1_title">1. Co-Produced, Not Extractive</h3>
+      <p data-i18n="principle_1_p1">
         This project is built on a partnership with the Indigenous community of San Juan Pequeñí La Bonga, Panama. Community members are not research subjects; they are paid collaborators and co-producers of spatial knowledge.
       </p>
-      <p>
+      <p data-i18n="principle_1_p2">
         Participatory workshops, field-based GPS mapping, and zoning discussions are conducted jointly, with local leadership guiding priorities. Data sovereignty, consent, and shared interpretation are foundational principles.
       </p>
-      <p><em>We believe meaning is created through shared authorship and trust.</em></p>
+      <p><em data-i18n="principle_1_belief">We believe meaning is created through shared authorship and trust.</em></p>
 
-      <h3>2. Public-Facing, Living Research</h3>
-      <p>
+      <h3 data-i18n="principle_2_title">2. Public-Facing, Living Research</h3>
+      <p data-i18n="principle_2_p1">
         Rather than confining findings to academic journals or static reports, this initiative maintains a transparent and evolving public platform available online through this platform and affiliated institutional or professional channels.
       </p>
-      <p>
+      <p data-i18n="principle_2_p2">
         Field updates, methods, maps, and progress reports are shared openly so that geography is visible as it is being practiced. The research process itself becomes part of the public record.
       </p>
-      <p><em>We believe meaning is strengthened when knowledge is visible and accountable.</em></p>
+      <p><em data-i18n="principle_2_belief">We believe meaning is strengthened when knowledge is visible and accountable.</em></p>
 
-      <h3>3. Institutionally Anchored, Grassroots Supported</h3>
-      <p>
+      <h3 data-i18n="principle_3_title">3. Institutionally Anchored, Grassroots Supported</h3>
+      <p data-i18n="principle_3_p1">
         The project is endorsed by the University of Kansas Department of Geography and the KU Center for Latin American and Caribbean Studies which ensures academic rigor and ethical oversight.
       </p>
-      <p>
+      <p data-i18n="principle_3_p2">
         At the same time, it invites civic engagement and public participation through grassroots fundraising support. This hybrid structure reflects a belief that serious scholarship and public engagement can reinforce one another.
       </p>
-      <p><em>We believe meaning is sustained when institutions and communities stand together.</em></p>
+      <p><em data-i18n="principle_3_belief">We believe meaning is sustained when institutions and communities stand together.</em></p>
 
-      <h3>4. Applied and Accountable</h3>
-      <p>
+      <h3 data-i18n="principle_4_title">4. Applied and Accountable</h3>
+      <p data-i18n="principle_4_p1">
         The research is designed to produce tangible outcomes: participatory zoning frameworks, watershed monitoring strategies, and spatial tools that strengthen local governance within the Río Pequeñí sub-basin of Chagres National Park.
       </p>
-      <p>
+      <p data-i18n="principle_4_p2">
         Success is measured not only in publication, but in practical benefit. The project is accountable to community partners, academic standards, and the public who supports it.
       </p>
-      <p><em>We believe meaning is realized when research leads to real-world impact.</em></p>
+      <p><em data-i18n="principle_4_belief">We believe meaning is realized when research leads to real-world impact.</em></p>
     </div>
   </div>
 </section>
@@ -1387,22 +1389,21 @@ url('images/palms.jpg') center/cover no-repeat;">
 
 <section id="donate">
   <div class="wrap">
-    <h2>Support the Chagres Initiative </h2>
+    <h2 data-i18n="donate_title">Support the Chagres Initiative </h2>
     <div class="panel">
-     <p>
+     <p data-i18n="donate_desc">
 The Chagres Geographic Fund directly supports equitable, community-based
 research partnerships in Panama.
 </p>
 
 <ul style="color:var(--muted); margin-top:12px;">
-  <li>Compensation for local and Indigenous research collaborators</li>
-  <li>GPS units, field tablets, and mapping equipment</li>
-  <li>Watershed monitoring tools and participatory zoning workshops</li>
-  <li>Student researcher travel, lodging, and field logistics</li>
-  <li>Transparent, ethical collaboration rooted in reciprocity</li>
+  <li data-i18n="donate_list1">Senior Researchers</li>
+  <li data-i18n="donate_list2">Workshops Expenses (GPS, Drones, Starlink, mapping materials, meals)</li>
+  <li data-i18n="donate_list3">Local Geographer Honoriariums and Travel (Covers locals' time working on the project)</li>
+  <li data-i18n="donate_list4">Researcher and Student Travel Expenses</li>
 </ul>
 
-<p style="margin-top:14px;">
+<p style="margin-top:14px;" data-i18n="donate_note">
 Every dollar strengthens local capacity, watershed governance,
 and long-term Panama Canal water security.
 </p>
@@ -1414,7 +1415,7 @@ and long-term Panama Canal water security.
         </div>
       </div>
 
-      <a class="btn" href="https://geog.ku.edu/donate" target="_blank">
+      <a class="btn" href="https://geog.ku.edu/donate" target="_blank" data-i18n="donate_button">
         Donate to the Chagres Geographic Fund
       </a>
     </div>
@@ -1422,7 +1423,7 @@ and long-term Panama Canal water security.
 </section>
 
 <div class="footer">
-  © 2026 The Chagres Initiative - KU Department of Geography
+  <span data-i18n="footer_copyright">© 2026 The Chagres Initiative - KU Department of Geography</span>
   <div class="footer-lang">
     <span id="footerLangToggle">English | Español</span>
   </div>
@@ -1610,9 +1611,82 @@ const translations = {
     stage_four: "Etapa Cuatro: Producción SIG",
     stage_four_text: "Digitalizar y estandarizar resultados para uso en planificación y gobernanza.",
 
+    about_title: "Acerca de la Iniciativa",
+    team_title: "Equipo de Investigación",
+    donate_title: "Apoye la Iniciativa Chagres",
+    donate_desc: "El Fondo Geográfico Chagres apoya directamente asociaciones de investigación comunitarias y equitativas en Panamá.",
+    donate_list1: "Investigadores Sénior",
+    donate_list2: "Investigadores Estudiantes",
+    donate_list3: "Geógrafos Locales",
+    donate_list4: "Viajes y Equipo",
+    donate_note: "Cada dólar fortalece la capacidad local, la gobernanza de la cuenca y la seguridad hídrica del Canal de Panamá a largo plazo.",
+    donate_button: "Donar al Fondo Geográfico Chagres",
+    footer_copyright: "© 2026 La Iniciativa Chagres - Departamento de Geografía de KU",
+    stage_two: "Etapa Dos: Capacitación",
+    stage_two_text: "Equipar a investigadores locales con herramientas de GPS, mapeo y documentación.",
+    stage_three: "Etapa Tres: Verificación en Campo",
+    stage_three_text: "Recopilar puntos de verdad en el terreno a través de visitas compartidas.",
+    stage_four: "Etapa Cuatro: Producción SIG",
+    stage_four_text: "Digitalizar y estandarizar resultados para uso en planificación y gobernanza.",
+
     auth_text: "Durante la visita de nuestro equipo a La Bonga en el verano de 2025, visitamos la comunidad remota dos veces en la aldea y nos reunimos con el liderazgo muchas veces en la Ciudad de Panamá. Durante nuestra segunda visita a la aldea de La Bonga, presentamos abiertamente la metodología de investigación participativa al grupo en español. Después de entender el potencial de tal proyecto, votaron unánimemente en apoyo de nuestro proyecto. Adjuntos están los documentos oficiales, firmados y sellados, que autorizan legalmente este trabajo bajo la Ley 72 de 2008.",
     auth_docs: "Ver Documentos de Autorización",
-    auth_letters: "Cartas de Autorización de La Bonga (PDF)"
+    auth_letters: "Cartas de Autorización de La Bonga (PDF)",
+
+    team_role_professor_es: "Profesor, Universidad de Kansas",
+    team_role_assoc_es: "Profesora Asociada, Universidad de Texas en Arlington",
+    team_role_phd_es: "Estudiante de Doctorado, Universidad de Kansas",
+    team_role_ma_es: "Estudiante de Maestría, Universidad de Kansas",
+    team_role_chief_es: "Jefe, Comunidad Indígena de San Juan Pequeñí La Bonga",
+    team_role_presidente_es: "Presidente, Comunidad Indígena de San Juan Pequeñí La Bonga",
+    team_role_undergrad_es: "Investigador Pregrado",
+    team_view_bio_es: "Ver biografía",
+    team_contact_es: "Contacto",
+    team_leadership_es: "Liderazgo Comunitario",
+
+    meaning_intro: "This initiative is designed not simply to generate data, but to cultivate geographic knowledge that is ethical, transparent, institutionally grounded, and practically applied. In an era when research can become detached from the communities it studies, this project centers meaning in both method and outcome.",
+    
+    principle_1_title: "1. Co-Produced, Not Extractive",
+    principle_1_p1: "This project is built on a partnership with the Indigenous community of San Juan Pequeñí La Bonga, Panama. Community members are not research subjects; they are paid collaborators and co-producers of spatial knowledge.",
+    principle_1_p2: "Participatory workshops, field-based GPS mapping, and zoning discussions are conducted jointly, with local leadership guiding priorities. Data sovereignty, consent, and shared interpretation are foundational principles.",
+    principle_1_belief: "We believe meaning is created through shared authorship and trust.",
+    
+    principle_2_title: "2. Public-Facing, Living Research",
+    principle_2_p1: "Rather than confining findings to academic journals or static reports, this initiative maintains a transparent and evolving public platform available online through this platform and affiliated institutional or professional channels.",
+    principle_2_p2: "Field updates, methods, maps, and progress reports are shared openly so that geography is visible as it is being practiced. The research process itself becomes part of the public record.",
+    principle_2_belief: "We believe meaning is strengthened when knowledge is visible and accountable.",
+    
+    principle_3_title: "3. Institutionally Anchored, Grassroots Supported",
+    principle_3_p1: "The project is endorsed by the University of Kansas Department of Geography and the KU Center for Latin American and Caribbean Studies which ensures academic rigor and ethical oversight.",
+    principle_3_p2: "At the same time, it invites civic engagement and public participation through grassroots fundraising support. This hybrid structure reflects a belief that serious scholarship and public engagement can reinforce one another.",
+    principle_3_belief: "We believe meaning is sustained when institutions and communities stand together.",
+    
+    principle_4_title: "4. Applied and Accountable",
+    principle_4_p1: "The research is designed to produce tangible outcomes: participatory zoning frameworks, watershed monitoring strategies, and spatial tools that strengthen local governance within the Río Pequeñí sub-basin of Chagres National Park.",
+    principle_4_p2: "Success is measured not only in publication, but in practical benefit. The project is accountable to community partners, academic standards, and the public who supports it.",
+    principle_4_belief: "We believe meaning is realized when research leads to real-world impact.",
+
+    meaning_intro_es: "Esta iniciativa está diseñada no solo para generar datos, sino para cultivar conocimiento geográfico que sea ético, transparente, institucionalmente fundamentado y prácticamente aplicado. En una era cuando la investigación puede desvincularse de las comunidades que estudia, este proyecto centra el significado tanto en el método como en el resultado.",
+    
+    principle_1_title_es: "1. Co-Producido, No Extractivo",
+    principle_1_p1_es: "Este proyecto se basa en una asociación con la comunidad indígena de San Juan Pequeñí La Bonga, Panamá. Los miembros de la comunidad no son sujetos de investigación; son colaboradores pagados y co-productores de conocimiento espacial.",
+    principle_1_p2_es: "Los talleres participativos, el mapeo GPS en el terreno y las discusiones de zonificación se realizan en conjunto, con el liderazgo local guiando las prioridades. La soberanía de datos, el consentimiento y la interpretación compartida son principios fundamentales.",
+    principle_1_belief_es: "Creemos que el significado se crea a través de la autoría compartida y la confianza.",
+    
+    principle_2_title_es: "2. Investigación Pública y Viva",
+    principle_2_p1_es: "En lugar de confinar los hallazgos a revistas académicas o informes estáticos, esta iniciativa mantiene una plataforma pública transparente y en evolución disponible en línea a través de esta plataforma y canales institucionales o profesionales afiliados.",
+    principle_2_p2_es: "Las actualizaciones de campo, métodos, mapas e informes de progreso se comparten abiertamente para que la geografía sea visible mientras se está practicando. El proceso de investigación en sí se convierte en parte del registro público.",
+    principle_2_belief_es: "Creemos que el significado se fortalece cuando el conocimiento es visible y responsable.",
+    
+    principle_3_title_es: "3. Anclado Institucionalmente, Apoyo de Base",
+    principle_3_p1_es: "El proyecto es respaldado por el Departamento de Geografía de la Universidad de Kansas y el Centro de Estudios Latinoamericanos y Caribeños de KU, lo que garantiza el rigor académico y la supervisión ética.",
+    principle_3_p2_es: "Al mismo tiempo, invita a la participación cívica y la participación pública a través del apoyo de recaudación de fondos de base. Esta estructura híbrida refleja la creencia de que la erudición seria y la participación pública pueden reforzarse mutuamente.",
+    principle_3_belief_es: "Creemos que el significado se sustenta cuando las instituciones y comunidades se unen.",
+    
+    principle_4_title_es: "4. Aplicado y Responsable",
+    principle_4_p1_es: "La investigación está diseñada para producir resultados tangibles: marcos de zonificación participativa, estrategias de monitoreo de cuencas y herramientas espaciales que fortalezcan la gobernanza local dentro de la subcuenca de Río Pequeñí del Parque Nacional Chagres.",
+    principle_4_p2_es: "El éxito se mide no solo en publicación, sino en beneficio práctico. El proyecto es responsable ante los socios comunitarios, los estándares académicos y el público que lo apoya.",
+    principle_4_belief_es: "Creemos que el significado se realiza cuando la investigación conduce a un impacto en el mundo real."
 
   }
 };
